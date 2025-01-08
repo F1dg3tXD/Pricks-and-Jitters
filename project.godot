@@ -12,5 +12,5 @@ config_version=5
 
 config/name="Pricks-and-Jitters"
 config/features=PackedStringArray("4.3")
-boot_splash/image="res://icon.png"
-config/icon="res://icon.png"
+boot_splash/image="res://iconGame.png"
+config/icon="res://iconGame.png"
