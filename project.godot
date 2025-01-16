@@ -14,3 +14,7 @@ config/name="Pricks-and-Jitters"
 config/features=PackedStringArray("4.3")
 boot_splash/image="res://iconGame.png"
 config/icon="res://iconGame.png"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/so_fluffy/plugin.cfg")
