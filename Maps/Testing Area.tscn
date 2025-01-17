@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=3 uid="uid://da5knn73wxupe"]
+
+[ext_resource type="PackedScene" uid="uid://by1ca6qaqisv4" path="res://Entities/Player/Detective.tscn" id="1_dkvww"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_711si"]
+size = Vector3(10, 0.5, 10)
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_piv8e"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_plg1c"]
+sky_material = SubResource("ProceduralSkyMaterial_piv8e")
+
+[sub_resource type="Environment" id="Environment_alsol"]
+background_mode = 2
+sky = SubResource("Sky_plg1c")
+sdfgi_enabled = true
+sdfgi_use_occlusion = true
+
+[node name="TestingArea" type="Node3D"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="StaticBody3D"]
+size = Vector3(10, 0.5, 10)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_711si")
+
+[node name="Player" parent="." instance=ExtResource("1_dkvww")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.35361, 0)
+
+[node name="env" type="Node3D" parent="."]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="env"]
+environment = SubResource("Environment_alsol")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="env"]
+transform = Transform3D(0.945519, 0.279066, -0.16768, 0, 0.515038, 0.857167, 0.325568, -0.810468, 0.486978, 0, 0, 0)
+light_energy = 2.85
+shadow_enabled = true

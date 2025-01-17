@@ -1,0 +1,338 @@
+[gd_scene load_steps=46 format=3 uid="uid://by1ca6qaqisv4"]
+
+[ext_resource type="PackedScene" uid="uid://dcl0yjn1r3u67" path="res://Models/Characters/Detective/Detective.tscn" id="1_0wieq"]
+[ext_resource type="Script" path="res://Entities/Player/Player.gd" id="1_x3pa8"]
+[ext_resource type="Texture2D" uid="uid://bt1qdrem3fnr7" path="res://Models/Characters/Detective/textures/detective_Body_diffuse.png" id="2_2c4fu"]
+[ext_resource type="Texture2D" uid="uid://dsuu25t7d8qvb" path="res://Models/Characters/Detective/textures/detective_Body_gloss.png" id="3_laban"]
+[ext_resource type="Texture2D" uid="uid://blgxuux27qvsi" path="res://Models/Characters/Detective/textures/detective_Body_normal.png" id="4_kdt4l"]
+[ext_resource type="Texture2D" uid="uid://cb4p5jipyhxk0" path="res://Models/Characters/Detective/textures/detective_Glove_diffuse.png" id="5_blaqb"]
+[ext_resource type="Texture2D" uid="uid://bth6njjg0kr2h" path="res://Models/Characters/Detective/textures/detective_Glove_specular.png" id="6_wlryb"]
+[ext_resource type="Texture2D" uid="uid://cb7xwxcaqh3aa" path="res://Models/Characters/Detective/textures/detective_Glove_normal.png" id="7_bscyv"]
+[ext_resource type="Texture2D" uid="uid://bw483txauju1q" path="res://Models/Characters/Detective/textures/detective_Top_diffuse.png" id="8_jk8ws"]
+[ext_resource type="Texture2D" uid="uid://yh21hrrxkkg1" path="res://Models/Characters/Detective/textures/detective_Top_gloss.png" id="9_u0fnp"]
+[ext_resource type="Texture2D" uid="uid://3bsrih1e8xe1" path="res://Models/Characters/Detective/textures/detective_Top_normal.png" id="10_bjyi6"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_3fqfl"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oftso"]
+resource_name = "Body"
+albedo_texture = ExtResource("2_2c4fu")
+metallic_specular = 0.0
+metallic_texture = ExtResource("3_laban")
+metallic_texture_channel = 2
+roughness_texture = ExtResource("3_laban")
+roughness_texture_channel = 1
+normal_enabled = true
+normal_texture = ExtResource("4_kdt4l")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_04i55"]
+resource_name = "Glove"
+albedo_texture = ExtResource("5_blaqb")
+metallic_specular = 0.0
+metallic_texture = ExtResource("6_wlryb")
+metallic_texture_channel = 2
+roughness_texture = ExtResource("6_wlryb")
+roughness_texture_channel = 1
+normal_enabled = true
+normal_texture = ExtResource("7_bscyv")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7ow21"]
+resource_name = "Top"
+albedo_texture = ExtResource("8_jk8ws")
+metallic_specular = 0.0
+metallic_texture = ExtResource("9_u0fnp")
+metallic_texture_channel = 2
+roughness_texture = ExtResource("9_u0fnp")
+roughness_texture_channel = 1
+normal_enabled = true
+normal_texture = ExtResource("10_bjyi6")
+
+[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_p5bm2"]
+filter_enabled = true
+filters = ["Armature/Skeleton3D:mixamorig_LeftArm", "Armature/Skeleton3D:mixamorig_LeftForeArm", "Armature/Skeleton3D:mixamorig_LeftHand", "Armature/Skeleton3D:mixamorig_LeftShoulder", "Armature/Skeleton3D:mixamorig_RightArm", "Armature/Skeleton3D:mixamorig_RightForeArm", "Armature/Skeleton3D:mixamorig_RightHand", "Armature/Skeleton3D:mixamorig_RightHandIndex1", "Armature/Skeleton3D:mixamorig_RightHandIndex2", "Armature/Skeleton3D:mixamorig_RightHandIndex3", "Armature/Skeleton3D:mixamorig_RightHandIndex4", "Armature/Skeleton3D:mixamorig_RightHandMiddle1", "Armature/Skeleton3D:mixamorig_RightHandMiddle2", "Armature/Skeleton3D:mixamorig_RightHandMiddle3", "Armature/Skeleton3D:mixamorig_RightHandMiddle4", "Armature/Skeleton3D:mixamorig_RightHandPinky1", "Armature/Skeleton3D:mixamorig_RightHandPinky2", "Armature/Skeleton3D:mixamorig_RightHandPinky3", "Armature/Skeleton3D:mixamorig_RightHandPinky4", "Armature/Skeleton3D:mixamorig_RightHandRing1", "Armature/Skeleton3D:mixamorig_RightHandRing2", "Armature/Skeleton3D:mixamorig_RightHandRing3", "Armature/Skeleton3D:mixamorig_RightHandRing4", "Armature/Skeleton3D:mixamorig_RightHandThumb1", "Armature/Skeleton3D:mixamorig_RightHandThumb2", "Armature/Skeleton3D:mixamorig_RightHandThumb3", "Armature/Skeleton3D:mixamorig_RightShoulder"]
+sync = true
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_5g5p1"]
+animation = &"idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_q7ygl"]
+animation = &"idle aiming"
+
+[sub_resource type="AnimationNodeBlend3" id="AnimationNodeBlend3_37j5r"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_q00gy"]
+animation = &"idle crouching"
+
+[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_6rtfc"]
+sync = true
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_085mx"]
+animation = &"idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_gr0j2"]
+animation = &"walk forward"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_k53te"]
+animation = &"walk forward right"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_jim4a"]
+animation = &"walk backward left"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_5wji2"]
+animation = &"walk backward right"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_l437u"]
+animation = &"run forward left"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_4qvl6"]
+animation = &"run forward right"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_a6keo"]
+animation = &"run backward left"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_137ea"]
+animation = &"run backward right"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_gj2vm"]
+animation = &"run forward"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_i57rf"]
+animation = &"walk backward"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_reepx"]
+animation = &"run backward"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_jk6e4"]
+animation = &"walk left"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_oebvj"]
+animation = &"walk right"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_5j1ux"]
+animation = &"run left"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_jp13p"]
+animation = &"run right"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_jj630"]
+animation = &"walk forward left"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_fxqay"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_085mx")
+blend_point_0/pos = Vector2(0, 0)
+blend_point_1/node = SubResource("AnimationNodeAnimation_gr0j2")
+blend_point_1/pos = Vector2(0, 0.5)
+blend_point_2/node = SubResource("AnimationNodeAnimation_gj2vm")
+blend_point_2/pos = Vector2(0, 1)
+blend_point_3/node = SubResource("AnimationNodeAnimation_i57rf")
+blend_point_3/pos = Vector2(0, -0.5)
+blend_point_4/node = SubResource("AnimationNodeAnimation_reepx")
+blend_point_4/pos = Vector2(0, -1)
+blend_point_5/node = SubResource("AnimationNodeAnimation_jk6e4")
+blend_point_5/pos = Vector2(-0.5, 0)
+blend_point_6/node = SubResource("AnimationNodeAnimation_oebvj")
+blend_point_6/pos = Vector2(0.5, 0)
+blend_point_7/node = SubResource("AnimationNodeAnimation_5j1ux")
+blend_point_7/pos = Vector2(-1, 0)
+blend_point_8/node = SubResource("AnimationNodeAnimation_jp13p")
+blend_point_8/pos = Vector2(1, 0)
+blend_point_9/node = SubResource("AnimationNodeAnimation_jj630")
+blend_point_9/pos = Vector2(-0.5, 0.5)
+blend_point_10/node = SubResource("AnimationNodeAnimation_k53te")
+blend_point_10/pos = Vector2(0.5, 0.5)
+blend_point_11/node = SubResource("AnimationNodeAnimation_jim4a")
+blend_point_11/pos = Vector2(-0.5, -0.5)
+blend_point_12/node = SubResource("AnimationNodeAnimation_5wji2")
+blend_point_12/pos = Vector2(0.5, -0.5)
+blend_point_13/node = SubResource("AnimationNodeAnimation_l437u")
+blend_point_13/pos = Vector2(-1, 1)
+blend_point_14/node = SubResource("AnimationNodeAnimation_4qvl6")
+blend_point_14/pos = Vector2(1, 1)
+blend_point_15/node = SubResource("AnimationNodeAnimation_a6keo")
+blend_point_15/pos = Vector2(-1, -1)
+blend_point_16/node = SubResource("AnimationNodeAnimation_137ea")
+blend_point_16/pos = Vector2(1, -1)
+sync = true
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_wvfce"]
+animation = &"holding flashlight"
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_dgug6"]
+graph_offset = Vector2(-373.347, -174.4)
+nodes/Flashlight/node = SubResource("AnimationNodeBlend2_p5bm2")
+nodes/Flashlight/position = Vector2(520, 20)
+nodes/Idle/node = SubResource("AnimationNodeAnimation_5g5p1")
+nodes/Idle/position = Vector2(-260, 100)
+nodes/IdleAiming/node = SubResource("AnimationNodeAnimation_q7ygl")
+nodes/IdleAiming/position = Vector2(-260, 240)
+nodes/IdleBlend/node = SubResource("AnimationNodeBlend3_37j5r")
+nodes/IdleBlend/position = Vector2(20, 100)
+nodes/IdleCrouching/node = SubResource("AnimationNodeAnimation_q00gy")
+nodes/IdleCrouching/position = Vector2(-260, -40)
+nodes/IdleWalk/node = SubResource("AnimationNodeBlend2_6rtfc")
+nodes/IdleWalk/position = Vector2(220, -80)
+nodes/WalkRun/node = SubResource("AnimationNodeBlendSpace2D_fxqay")
+nodes/WalkRun/position = Vector2(20, -100)
+nodes/holdingFlashlight/node = SubResource("AnimationNodeAnimation_wvfce")
+nodes/holdingFlashlight/position = Vector2(480, -120)
+nodes/output/position = Vector2(860, 100)
+node_connections = [&"Flashlight", 0, &"IdleWalk", &"Flashlight", 1, &"holdingFlashlight", &"IdleBlend", 0, &"IdleCrouching", &"IdleBlend", 1, &"Idle", &"IdleBlend", 2, &"IdleAiming", &"IdleWalk", 0, &"IdleBlend", &"IdleWalk", 1, &"WalkRun", &"output", 0, &"Flashlight"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_y7phx"]
+animation = &"idle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_bkucc"]
+xfade_time = 0.1
+switch_mode = 1
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_xcmfc"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_rgdvs"]
+states/BlendTree/node = SubResource("AnimationNodeBlendTree_dgug6")
+states/BlendTree/position = Vector2(485, 100)
+states/idle/node = SubResource("AnimationNodeAnimation_y7phx")
+states/idle/position = Vector2(324, 100)
+transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_bkucc"), "idle", "BlendTree", SubResource("AnimationNodeStateMachineTransition_xcmfc")]
+
+[node name="Player" type="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+script = ExtResource("1_x3pa8")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_3fqfl")
+
+[node name="Detective" parent="." instance=ExtResource("1_0wieq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+
+[node name="Skeleton3D" parent="Detective/Armature" index="0"]
+bones/0/rotation = Quaternion(-0.056412, -0.46065, -0.0106245, 0.885724)
+bones/1/rotation = Quaternion(0.00745691, 0.00391805, 0.0053996, 0.99995)
+bones/1/scale = Vector3(1, 1, 1)
+bones/2/rotation = Quaternion(0.0432572, 0.00966549, 0.00414588, 0.999009)
+bones/3/rotation = Quaternion(0.0750834, 0.0095029, 0.00121777, 0.997131)
+bones/4/rotation = Quaternion(0.0609728, 0.0487913, 0.000556623, 0.996946)
+bones/5/rotation = Quaternion(-0.0040646, 0.318387, -0.0541574, 0.946404)
+bones/7/rotation = Quaternion(-0.592505, -0.378382, 0.612229, -0.361858)
+bones/7/scale = Vector3(1, 1, 1)
+bones/8/rotation = Quaternion(0.415698, 0.00271189, -0.0329612, 0.908901)
+bones/9/rotation = Quaternion(0.0200438, -0.057298, 0.0874826, 0.994315)
+bones/10/rotation = Quaternion(0.0467429, 0.0353776, -0.0695689, 0.995853)
+bones/11/rotation = Quaternion(0.173266, 0.038734, 0.291145, 0.94006)
+bones/12/rotation = Quaternion(0.102161, 0.0105736, -0.121445, 0.98727)
+bones/13/rotation = Quaternion(-0.252079, -0.0261826, 0.203895, 0.94562)
+bones/15/rotation = Quaternion(0.248186, 0.085204, 0.00551509, 0.964942)
+bones/16/rotation = Quaternion(0.260267, 0.000410864, -0.0268642, 0.965163)
+bones/17/rotation = Quaternion(0.283552, 0.000146729, -0.0269326, 0.958579)
+bones/19/rotation = Quaternion(0.205546, 0.095237, 0.0291202, 0.973567)
+bones/20/rotation = Quaternion(0.415105, 0.00118575, -0.0401688, 0.908886)
+bones/21/rotation = Quaternion(0.402295, -2.44251e-05, -0.0385275, 0.914699)
+bones/23/rotation = Quaternion(0.172328, 0.0195751, 0.0455372, 0.983792)
+bones/24/rotation = Quaternion(0.587808, 0.00168976, -0.0576916, 0.806939)
+bones/25/rotation = Quaternion(0.290677, 0.0202522, -0.0935261, 0.952024)
+bones/27/rotation = Quaternion(0.114864, -0.0628461, 0.0423373, 0.990487)
+bones/28/rotation = Quaternion(0.389522, -0.00050193, -0.0443431, 0.919949)
+bones/29/rotation = Quaternion(0.328942, 0.00161594, -0.028062, 0.943932)
+bones/31/rotation = Quaternion(0.580995, -0.404824, 0.555884, 0.43538)
+bones/31/scale = Vector3(1, 1, 1)
+bones/32/rotation = Quaternion(0.425295, 0.277386, -0.0922328, 0.856548)
+bones/33/rotation = Quaternion(0.347371, 0.0668252, -0.658027, 0.664732)
+bones/34/rotation = Quaternion(0.0666204, -0.154716, -0.42803, 0.887927)
+bones/34/scale = Vector3(1, 1, 1)
+bones/35/rotation = Quaternion(0.194265, -0.102083, -0.237743, 0.946213)
+bones/35/scale = Vector3(1, 1, 1)
+bones/36/rotation = Quaternion(0.000125608, 0.00150989, -0.0813162, 0.996687)
+bones/37/rotation = Quaternion(-0.000228052, 0.00229994, -0.101368, 0.994846)
+bones/37/scale = Vector3(1, 1, 1)
+bones/39/rotation = Quaternion(0.23748, -0.0142242, -0.0608373, 0.969381)
+bones/40/rotation = Quaternion(0.248212, -0.000744375, -0.00289289, 0.968701)
+bones/40/scale = Vector3(1, 1, 1)
+bones/41/rotation = Quaternion(0.248212, 0.000433159, 0.0014723, 0.968704)
+bones/42/rotation = Quaternion(0.248213, -1.34744e-08, 8.85917e-09, 0.968705)
+bones/43/rotation = Quaternion(0.237434, -0.014919, -0.0621525, 0.969298)
+bones/44/rotation = Quaternion(0.248212, 2.66827e-08, -6.784e-08, 0.968706)
+bones/44/scale = Vector3(1, 1, 1)
+bones/45/rotation = Quaternion(0.248214, -2.49451e-08, 8.85699e-08, 0.968705)
+bones/46/rotation = Quaternion(0.248213, -7.2833e-09, 9.72896e-09, 0.968705)
+bones/47/rotation = Quaternion(0.237396, -0.0155099, -0.0619945, 0.969309)
+bones/47/scale = Vector3(1, 1, 1)
+bones/48/rotation = Quaternion(0.248213, -0.00041304, -0.00150217, 0.968704)
+bones/49/rotation = Quaternion(0.248212, 0.00084483, 0.00343178, 0.968699)
+bones/50/rotation = Quaternion(0.248213, -2.0181e-08, 9.12906e-09, 0.968705)
+bones/51/rotation = Quaternion(0.237429, -0.0149958, -0.0621321, 0.9693)
+bones/51/scale = Vector3(1, 1, 1)
+bones/52/rotation = Quaternion(0.248212, 0.000438397, 0.00182797, 0.968704)
+bones/52/scale = Vector3(1, 1, 1)
+bones/53/rotation = Quaternion(0.248211, -0.0010433, -0.00398793, 0.968697)
+bones/54/rotation = Quaternion(0.248213, 2.32755e-08, 1.76362e-07, 0.968705)
+bones/55/scale = Vector3(1, 1, 1)
+bones/56/rotation = Quaternion(0.13927, 0.172615, 0.968022, -0.117223)
+bones/56/scale = Vector3(1, 1, 1)
+bones/57/rotation = Quaternion(-0.271279, -0.12584, 0.00968426, 0.95419)
+bones/57/scale = Vector3(1, 1, 1)
+bones/58/rotation = Quaternion(0.502535, -0.0607691, -0.0524684, 0.860821)
+bones/58/scale = Vector3(1, 1, 1)
+bones/59/rotation = Quaternion(0.282882, -0.101952, 0.031389, 0.953204)
+bones/61/rotation = Quaternion(-0.19259, 0.14718, 0.957246, 0.157884)
+bones/61/scale = Vector3(1, 1, 1)
+bones/62/rotation = Quaternion(-0.351945, 0.0239576, -0.0208816, 0.935481)
+bones/62/scale = Vector3(1, 1, 1)
+bones/63/rotation = Quaternion(0.600899, 0.0438514, 0.0840276, 0.793685)
+bones/63/scale = Vector3(1, 1, 1)
+bones/64/rotation = Quaternion(0.265209, 0.115824, -0.00966908, 0.95716)
+
+[node name="FPV" parent="Detective/Armature/Skeleton3D" index="0"]
+transform = Transform3D(-0.612978, -0.202926, 0.763596, -0.0539969, 0.974954, 0.215749, -0.788253, 0.0910173, -0.608583, -0.143079, 1.47471, 0.0588247)
+
+[node name="detective" parent="Detective/Armature/Skeleton3D" index="1"]
+cast_shadow = 3
+
+[node name="SkeletonIK_LookAt" type="SkeletonIK3D" parent="Detective/Armature/Skeleton3D" index="2"]
+root_bone = &"mixamorig_Spine"
+tip_bone = &"mixamorig_Spine2"
+target_node = NodePath("../../../../IK_Targets/LookTarget")
+
+[node name="SkeletonIK_Head" type="SkeletonIK3D" parent="Detective/Armature/Skeleton3D" index="3"]
+transform = Transform3D(1, 0, 0, 0, 0.983587, -0.180433, 0, 0.180433, 0.983587, 0, 0, 0)
+root_bone = &"mixamorig_Neck"
+tip_bone = &"mixamorig_Head"
+target_node = NodePath("../../../../IK_Targets/LookTarget/PitchNode/HeadTarget")
+
+[node name="detective_arms" parent="Detective/Armature/Skeleton3D" index="4"]
+surface_material_override/0 = SubResource("StandardMaterial3D_oftso")
+surface_material_override/1 = SubResource("StandardMaterial3D_04i55")
+surface_material_override/2 = SubResource("StandardMaterial3D_7ow21")
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+root_node = NodePath("../Detective")
+tree_root = SubResource("AnimationNodeStateMachine_rgdvs")
+anim_player = NodePath("../Detective/AnimationPlayer")
+parameters/BlendTree/Flashlight/blend_amount = 1.0
+parameters/BlendTree/IdleBlend/blend_amount = 0.0
+parameters/BlendTree/IdleWalk/blend_amount = 0.0
+parameters/BlendTree/WalkRun/blend_position = Vector2(0, 0.5)
+
+[node name="IK_Targets" type="Node3D" parent="."]
+unique_name_in_owner = true
+
+[node name="LookTarget" type="Node3D" parent="IK_Targets"]
+unique_name_in_owner = true
+transform = Transform3D(0.99832, 0, -0.0579474, 0, 1, 0, 0.0579474, 0, 0.99832, -0.0127805, 0.454453, -0.0578401)
+
+[node name="PitchNode" type="Node3D" parent="IK_Targets/LookTarget"]
+
+[node name="cameraRoot" type="Node3D" parent="IK_Targets/LookTarget/PitchNode"]
+transform = Transform3D(-0.99832, 0, -0.0579474, 0, 0.999999, 0, 0.0579474, 0, -0.998319, 0.0034739, 0.038004, 0.171132)
+
+[node name="Camera3D" type="Camera3D" parent="IK_Targets/LookTarget/PitchNode/cameraRoot"]
+fov = 117.0
+
+[node name="RayCast3D" type="RayCast3D" parent="IK_Targets/LookTarget/PitchNode/cameraRoot"]
+target_position = Vector3(0, 0, -2)
+
+[node name="HeadTarget" type="Node3D" parent="IK_Targets/LookTarget/PitchNode"]
+unique_name_in_owner = true
+transform = Transform3D(0.99832, 0, 0.0579474, 0, 1, 0, -0.0579474, 0, 0.99832, 0.0161107, 0.379993, 0.0570023)
+
+[editable path="Detective"]
