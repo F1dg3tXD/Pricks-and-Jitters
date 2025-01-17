@@ -1,8 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://dhl7kj6rqh2m0"]
+[gd_scene load_steps=10 format=3 uid="uid://dhl7kj6rqh2m0"]
 
 [ext_resource type="PackedScene" uid="uid://bjv686ejp1h4i" path="res://Models/Characters/Jitters/Jitters.blend" id="1_niqnl"]
 [ext_resource type="Texture2D" uid="uid://bujc5tnq32os7" path="res://Models/Characters/Jitters/textures/Jitters_D.png" id="2_kcpty"]
 [ext_resource type="Script" path="res://addons/so_fluffy/so_fluffy.gd" id="4_5eltc"]
+[ext_resource type="Script" path="res://wigglebone-31d0e221dd1b934ea0138c072bb8e2fa1a566002/addons/wigglebone/wiggle_bone.gd" id="4_s4ess"]
+[ext_resource type="Script" path="res://wigglebone-31d0e221dd1b934ea0138c072bb8e2fa1a566002/addons/wigglebone/wiggle_properties.gd" id="5_m4sjr"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_30hqb"]
 frequency = 0.0095
@@ -15,7 +17,18 @@ noise = SubResource("FastNoiseLite_30hqb")
 as_normal_map = true
 noise = SubResource("FastNoiseLite_30hqb")
 
+[sub_resource type="Resource" id="Resource_efduo"]
+script = ExtResource("5_m4sjr")
+mode = 0
+stiffness = 0.1
+damping = 0.8
+gravity = Vector3(0, 0, 0)
+length = 0.1
+max_distance = 0.1
+max_degrees = 60.0
+
 [node name="Jitters" instance=ExtResource("1_niqnl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.198222, 0, 0)
 
 [node name="Skeleton3D" parent="rig" index="0"]
 bones/2/rotation = Quaternion(-0.0306269, 0, 0, 0.999531)
@@ -32,7 +45,9 @@ bones/15/rotation = Quaternion(0.0133956, -1.03407e-25, -3.58495e-17, 0.99991)
 bones/16/rotation = Quaternion(0.0940803, 3.37852e-18, 4.09665e-19, 0.995565)
 bones/16/scale = Vector3(1, 1, 1)
 bones/17/rotation = Quaternion(0.105924, 3.8874e-18, 1.23479e-18, 0.994374)
-bones/18/rotation = Quaternion(0.0531142, 2.01765e-18, 9.34134e-19, 0.998588)
+bones/18/position = Vector3(3.81475e-17, 0.379184, 1.76339e-08)
+bones/18/rotation = Quaternion(0.0531155, 2.01766e-18, 9.34101e-19, 0.998588)
+bones/18/scale = Vector3(1, 1, 1)
 bones/21/scale = Vector3(1, 1, 1)
 bones/22/scale = Vector3(1, 1, 1)
 bones/23/scale = Vector3(1, 1, 1)
@@ -173,3 +188,31 @@ albedo_color = Color(1, 1, 1, 1)
 albedo_texture = ExtResource("2_kcpty")
 emission_energy_multiplier = 0.05
 emission_texture = ExtResource("2_kcpty")
+
+[node name="WiggleBone" type="BoneAttachment3D" parent="rig/Skeleton3D" index="2"]
+transform = Transform3D(1, 7.16926e-17, -9.60456e-19, -9.60456e-19, 0.0267889, 0.999641, 7.16926e-17, -0.999641, 0.0267889, -1.12389e-16, 0.579478, -0.641312)
+bone_name = "tail"
+bone_idx = 15
+script = ExtResource("4_s4ess")
+properties = SubResource("Resource_efduo")
+
+[node name="WiggleBone2" type="BoneAttachment3D" parent="rig/Skeleton3D" index="3"]
+transform = Transform3D(1, 7.00636e-17, -7.56918e-18, -7.56917e-18, 0.213573, 0.976927, 7.00636e-17, -0.976927, 0.213573, -8.76422e-17, 0.588725, -0.986375)
+bone_name = "tail.003"
+bone_idx = 16
+script = ExtResource("4_s4ess")
+properties = SubResource("Resource_efduo")
+
+[node name="WiggleBone3" type="BoneAttachment3D" parent="rig/Skeleton3D" index="4"]
+transform = Transform3D(1, 6.52647e-17, -1.4166e-17, -1.41659e-17, 0.414577, 0.910014, 6.52647e-17, -0.910014, 0.414577, -6.28948e-17, 0.664162, -1.33144)
+bone_name = "tail.001"
+bone_idx = 17
+script = ExtResource("4_s4ess")
+properties = SubResource("Resource_efduo")
+
+[node name="WiggleBone4" type="BoneAttachment3D" parent="rig/Skeleton3D" index="5"]
+transform = Transform3D(1, 6.17425e-17, -1.68806e-17, -1.68804e-17, 0.508772, 0.860901, 6.17425e-17, -0.860901, 0.508772, 0, 0.821363, -1.6765)
+bone_name = "tail.002"
+bone_idx = 18
+script = ExtResource("4_s4ess")
+properties = SubResource("Resource_efduo")

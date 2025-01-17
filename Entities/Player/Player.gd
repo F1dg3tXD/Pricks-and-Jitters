@@ -9,6 +9,18 @@ extends CharacterBody3D
 @onready var camera_root: Node3D = $IK_Targets/LookTarget/PitchNode/cameraRoot
 @onready var collision_shape_3d: CollisionShape3D = $CollisionShape3D
 
+#Check if player can stand up in an enclosed space.
+@onready var can_stand: RayCast3D = $colisionChecks/canStand
+
+#Checks for climbing stairs with seperation rays ans raycasts.
+@onready var can_climb_b: CollisionShape3D = $canClimbB
+@onready var can_climb_l: CollisionShape3D = $canClimbL
+@onready var can_climb_r: CollisionShape3D = $canClimbR
+@onready var can_climb_fl: CollisionShape3D = $canClimbFL
+@onready var can_climb_br: CollisionShape3D = $canClimbBR
+@onready var can_climb_bl: CollisionShape3D = $canClimbBL
+@onready var can_climb_fr: CollisionShape3D = $canClimbFR
+
 # Movement and look variables
 var speed: float = 5.0
 var sprint_multiplier: float = 2.0
@@ -126,3 +138,44 @@ func update_animation_tree():
 		animation_tree.set("parameters/state", "sprint")
 	else:
 		animation_tree.set("parameters/state", "walk")
+
+# Add the updated function for climbing stairs
+func _rotate_step_up_seperation_ray():
+	# Calculate the direction of the player's movement in the XZ plane
+	var xz_vel = velocity * Vector3(1, 0, 1)
+	
+	# Position the forward climbing check
+	var xz_f_ray_pos = xz_vel.normalized() * can_climb_b.global_transform.basis.z.length()
+	can_climb_b.global_position = global_position + xz_f_ray_pos
+
+	# Position the left climbing check
+	xz_f_ray_pos = xz_f_ray_pos.rotated(Vector3.UP, deg_to_rad(-50))
+	can_climb_l.global_position = global_position + xz_f_ray_pos
+
+	# Position the right climbing check
+	xz_f_ray_pos = xz_f_ray_pos.rotated(Vector3.UP, deg_to_rad(100))
+	can_climb_r.global_position = global_position + xz_f_ray_pos
+
+	# Update the collision shapes
+	can_climb_b.shape_update()
+	can_climb_l.shape_update()
+	can_climb_r.shape_update()
+
+	# Check raycast collisions and steepness
+	var max_slope_ang_dot = Vector3(0, 1, 0).rotated(Vector3(1, 0, 0), deg_to_rad(floor_max_angle)).dot(Vector3(0, 1, 0))
+	var any_too_steep = false
+
+	if can_climb_b.get_node("RayCast3D").is_colliding():
+		if can_climb_b.get_node("RayCast3D").get_collision_normal().dot(Vector3.UP) < max_slope_ang_dot:
+			any_too_steep = true
+	if can_climb_l.get_node("RayCast3D").is_colliding():
+		if can_climb_l.get_node("RayCast3D").get_collision_normal().dot(Vector3.UP) < max_slope_ang_dot:
+			any_too_steep = true
+	if can_climb_r.get_node("RayCast3D").is_colliding():
+		if can_climb_r.get_node("RayCast3D").get_collision_normal().dot(Vector3.UP) < max_slope_ang_dot:
+			any_too_steep = true
+
+	# Disable the raycasts if the slope is too steep
+	can_climb_b.get_node("RayCast3D").enabled = not any_too_steep
+	can_climb_l.get_node("RayCast3D").enabled = not any_too_steep
+	can_climb_r.get_node("RayCast3D").enabled = not any_too_steep
