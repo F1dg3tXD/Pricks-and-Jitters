@@ -16,6 +16,10 @@ config/features=PackedStringArray("4.3")
 boot_splash/image="res://iconGame.png"
 config/icon="res://iconGame.png"
 
+[autoload]
+
+GameState="*res://Entities/GameState.gd"
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/so_fluffy/plugin.cfg")
@@ -107,3 +111,9 @@ look_right={
 "events": [Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":-1,"axis":2,"axis_value":1.0,"script":null)
 ]
 }
+
+[physics]
+
+3d/run_on_separate_thread=true
+3d/physics_engine="JoltPhysics3D"
+3d/default_gravity=19.6

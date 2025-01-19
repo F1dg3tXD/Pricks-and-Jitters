@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://da5knn73wxupe"]
+[gd_scene load_steps=12 format=3 uid="uid://da5knn73wxupe"]
 
-[ext_resource type="PackedScene" uid="uid://by1ca6qaqisv4" path="res://Entities/Player/Detective.tscn" id="1_dkvww"]
 [ext_resource type="PackedScene" uid="uid://dhl7kj6rqh2m0" path="res://Entities/NPC/jitters.tscn" id="1_y01wn"]
+[ext_resource type="PackedScene" uid="uid://cmvudfv03wcmd" path="res://Entities/Player/Player.tscn" id="2_6pulc"]
+[ext_resource type="PackedScene" uid="uid://ynhnuwu74jp7" path="res://Maps/SceneSwitcher.tscn" id="3_ew8w1"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_711si"]
 size = Vector3(50, 1, 50)
@@ -69,9 +70,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 3.5)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D5"]
 shape = SubResource("BoxShape3D_1otc7")
 
-[node name="Jitters" parent="StaticBody3D5" instance=ExtResource("1_y01wn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.56622, -0.25, 6.38821)
-
 [node name="env" type="Node3D" parent="."]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="env"]
@@ -82,5 +80,11 @@ transform = Transform3D(0.945519, 0.279066, -0.16768, 0, 0.515038, 0.857167, 0.3
 light_energy = 2.85
 shadow_enabled = true
 
-[node name="Player" parent="." instance=ExtResource("1_dkvww")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+[node name="Player" parent="." instance=ExtResource("2_6pulc")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 1, 0)
+
+[node name="Jitters" parent="." instance=ExtResource("1_y01wn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.56622, 0.5, 9.88821)
+
+[node name="SceneSwitcher" parent="Jitters" instance=ExtResource("3_ew8w1")]
+to_scene = "res://Maps/DemoRoom.tscn"

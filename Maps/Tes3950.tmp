@@ -1,0 +1,87 @@
+[gd_scene load_steps=11 format=3 uid="uid://da5knn73wxupe"]
+
+[ext_resource type="PackedScene" uid="uid://dhl7kj6rqh2m0" path="res://Entities/NPC/jitters.tscn" id="1_y01wn"]
+[ext_resource type="PackedScene" uid="uid://cmvudfv03wcmd" path="res://Entities/Player/Player.tscn" id="2_6pulc"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_711si"]
+size = Vector3(50, 1, 50)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0xy6k"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3df4n"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0ex5w"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1otc7"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_piv8e"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_plg1c"]
+sky_material = SubResource("ProceduralSkyMaterial_piv8e")
+
+[sub_resource type="Environment" id="Environment_alsol"]
+background_mode = 2
+sky = SubResource("Sky_plg1c")
+sdfgi_enabled = true
+sdfgi_use_occlusion = true
+
+[node name="TestingArea" type="Node3D"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="StaticBody3D"]
+size = Vector3(50, 0.5, 50)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_711si")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="StaticBody3D2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D2"]
+shape = SubResource("BoxShape3D_0xy6k")
+
+[node name="StaticBody3D3" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 2.5)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="StaticBody3D3"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D3"]
+shape = SubResource("BoxShape3D_3df4n")
+
+[node name="StaticBody3D4" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 3)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="StaticBody3D4"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D4"]
+shape = SubResource("BoxShape3D_0ex5w")
+
+[node name="StaticBody3D5" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 3.5)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="StaticBody3D5"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D5"]
+shape = SubResource("BoxShape3D_1otc7")
+
+[node name="Jitters" parent="StaticBody3D5" instance=ExtResource("1_y01wn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.56622, -0.25, 6.38821)
+
+[node name="env" type="Node3D" parent="."]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="env"]
+environment = SubResource("Environment_alsol")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="env"]
+transform = Transform3D(0.945519, 0.279066, -0.16768, 0, 0.515038, 0.857167, 0.325568, -0.810468, 0.486978, 0, 0, 0)
+light_energy = 2.85
+shadow_enabled = true
+
+[node name="Player" parent="." instance=ExtResource("2_6pulc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+script = null

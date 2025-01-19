@@ -1,0 +1,248 @@
+[gd_scene load_steps=14 format=3 uid="uid://cmvudfv03wcmd"]
+
+[ext_resource type="Script" path="res://Entities/Player/player.gd" id="1_iyqmc"]
+[ext_resource type="Texture2D" uid="uid://dxn8y4celdh0r" path="res://Entities/Player/hurt.png" id="2_ehnts"]
+[ext_resource type="PackedScene" uid="uid://by7g6qtybner8" path="res://Interact/InteractRay.tscn" id="2_h0cin"]
+[ext_resource type="Script" path="res://Entities/Player/ui.gd" id="3_uw0jf"]
+[ext_resource type="FontFile" uid="uid://bguf3rdjitpq7" path="res://Fonts/Poppins-Regular.ttf" id="5_87d1x"]
+[ext_resource type="Texture2D" uid="uid://bidw8qikasua4" path="res://Entities/Player/crosshair.png" id="6_20gd7"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_b0b6p"]
+resource_local_to_scene = true
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_x3w4a"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h2xi8"]
+bg_color = Color(0.152941, 0.152941, 0.211765, 1)
+corner_radius_bottom_left = 10
+corner_detail = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ungjm"]
+bg_color = Color(1, 1, 0.921569, 1)
+corner_radius_bottom_left = 10
+corner_detail = 1
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ovmu8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m0slx"]
+bg_color = Color(0.921569, 0.337255, 0.294118, 1)
+corner_radius_bottom_left = 10
+corner_detail = 1
+
+[sub_resource type="SeparationRayShape3D" id="SeparationRayShape3D_0t13h"]
+length = 0.5
+
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_iyqmc")
+crouch_height = 1.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_b0b6p")
+
+[node name="Head" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+
+[node name="Camera3D" type="Camera3D" parent="Head"]
+
+[node name="InteractRay" parent="Head" instance=ExtResource("2_h0cin")]
+
+[node name="TopCast" type="ShapeCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("SphereShape3D_x3w4a")
+target_position = Vector3(0, 0.5, 0)
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_uw0jf")
+
+[node name="CrossHair" type="TextureRect" parent="UI"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -16.0
+offset_top = -16.0
+offset_right = 16.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_20gd7")
+
+[node name="HurtOverlay" type="TextureRect" parent="UI"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_ehnts")
+
+[node name="HealthBarBG" type="ProgressBar" parent="UI"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 6.0
+offset_top = -50.0
+offset_right = 506.0
+offset_bottom = -10.0
+grow_vertical = 0
+theme_override_styles/background = SubResource("StyleBoxFlat_h2xi8")
+theme_override_styles/fill = SubResource("StyleBoxFlat_ungjm")
+value = 80.0
+show_percentage = false
+
+[node name="HealthBar" type="ProgressBar" parent="UI"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 6.0
+offset_top = -50.0
+offset_right = 506.0
+offset_bottom = -10.0
+grow_vertical = 0
+theme_override_styles/background = SubResource("StyleBoxEmpty_ovmu8")
+theme_override_styles/fill = SubResource("StyleBoxFlat_m0slx")
+value = 70.0
+show_percentage = false
+
+[node name="GameOver" type="Panel" parent="UI"]
+visible = false
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -219.0
+offset_bottom = 219.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BoxContainer" type="BoxContainer" parent="UI/GameOver"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+vertical = true
+
+[node name="Label" type="Label" parent="UI/GameOver/BoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_colors/font_color = Color(0.921828, 0.337072, 0.294087, 1)
+theme_override_fonts/font = ExtResource("5_87d1x")
+theme_override_font_sizes/font_size = 200
+text = "WOMP WOMP"
+horizontal_alignment = 1
+
+[node name="BoxContainer" type="BoxContainer" parent="UI/GameOver/BoxContainer"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+alignment = 1
+
+[node name="RestartButton" type="Button" parent="UI/GameOver/BoxContainer/BoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0.921828, 0.337072, 0.294087, 1)
+theme_override_colors/font_pressed_color = Color(0.921569, 0.337255, 0.294118, 1)
+theme_override_fonts/font = ExtResource("5_87d1x")
+theme_override_font_sizes/font_size = 32
+text = "RESTART"
+flat = true
+
+[node name="QuitButton" type="Button" parent="UI/GameOver/BoxContainer/BoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0.921569, 0.337255, 0.294118, 1)
+theme_override_colors/font_pressed_color = Color(0.921569, 0.337255, 0.294118, 1)
+theme_override_fonts/font = ExtResource("5_87d1x")
+theme_override_font_sizes/font_size = 32
+text = "QUIT"
+flat = true
+
+[node name="canClimbF" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.25, 0.5)
+shape = SubResource("SeparationRayShape3D_0t13h")
+
+[node name="RayCast3D" type="RayCast3D" parent="canClimbF"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+enabled = false
+target_position = Vector3(0, -0.5, 0)
+
+[node name="canClimbB" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.25, -0.5)
+shape = SubResource("SeparationRayShape3D_0t13h")
+
+[node name="RayCast3D" type="RayCast3D" parent="canClimbB"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+enabled = false
+target_position = Vector3(0, -0.5, 0)
+
+[node name="canClimbL" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0.5, 0.25, 0)
+shape = SubResource("SeparationRayShape3D_0t13h")
+
+[node name="RayCast3D" type="RayCast3D" parent="canClimbL"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+enabled = false
+target_position = Vector3(0, -0.5, 0)
+
+[node name="canClimbR" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.5, 0.25, 0)
+shape = SubResource("SeparationRayShape3D_0t13h")
+
+[node name="RayCast3D" type="RayCast3D" parent="canClimbR"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+enabled = false
+target_position = Vector3(0, -0.5, 0)
+
+[node name="canClimbFL" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.707107, 0.707107, -3.09086e-08, 0, -4.37114e-08, -1, -0.707107, 0.707107, -3.09086e-08, 0.353553, 0.25, 0.353553)
+shape = SubResource("SeparationRayShape3D_0t13h")
+
+[node name="RayCast3D" type="RayCast3D" parent="canClimbFL"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+enabled = false
+target_position = Vector3(0, -0.5, 0)
+
+[node name="canClimbBR" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.707107, 0.707107, -3.09086e-08, 0, -4.37114e-08, -1, -0.707107, 0.707107, -3.09086e-08, -0.353553, 0.25, -0.353553)
+shape = SubResource("SeparationRayShape3D_0t13h")
+
+[node name="RayCast3D" type="RayCast3D" parent="canClimbBR"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+enabled = false
+target_position = Vector3(0, -0.5, 0)
+
+[node name="canClimbBL" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.707107, 0.707107, -3.09086e-08, 0, -4.37114e-08, -1, -0.707107, 0.707107, -3.09086e-08, 0.353553, 0.25, -0.353553)
+shape = SubResource("SeparationRayShape3D_0t13h")
+
+[node name="RayCast3D" type="RayCast3D" parent="canClimbBL"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+enabled = false
+target_position = Vector3(0, -0.5, 0)
+
+[node name="canClimbFR" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.707107, 0.707107, -3.09086e-08, 0, -4.37114e-08, -1, -0.707107, 0.707107, -3.09086e-08, -0.353553, 0.25, 0.353553)
+shape = SubResource("SeparationRayShape3D_0t13h")
+
+[node name="RayCast3D" type="RayCast3D" parent="canClimbFR"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+enabled = false
+target_position = Vector3(0, -0.5, 0)
+
+[connection signal="pressed" from="UI/GameOver/BoxContainer/BoxContainer/RestartButton" to="UI" method="_on_restart_button_pressed"]
+[connection signal="pressed" from="UI/GameOver/BoxContainer/BoxContainer/QuitButton" to="UI" method="_on_quit_button_pressed"]
