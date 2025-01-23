@@ -50,6 +50,9 @@ prompt_message = "Door"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.5, 0)
 shape = SubResource("BoxShape3D_2rr11")
 
+[node name="centerHindge" parent="." index="1"]
+visible = false
+
 [node name="AnimationTree" type="AnimationTree" parent="." index="3"]
 tree_root = SubResource("AnimationNodeStateMachine_hy21l")
 anim_player = NodePath("../AnimationPlayer")
