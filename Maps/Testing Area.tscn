@@ -1,8 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://da5knn73wxupe"]
+[gd_scene load_steps=13 format=3 uid="uid://da5knn73wxupe"]
 
 [ext_resource type="PackedScene" uid="uid://dhl7kj6rqh2m0" path="res://Entities/NPC/jitters.tscn" id="1_y01wn"]
 [ext_resource type="PackedScene" uid="uid://cmvudfv03wcmd" path="res://Entities/Player/Player.tscn" id="2_6pulc"]
 [ext_resource type="PackedScene" uid="uid://ynhnuwu74jp7" path="res://Maps/SceneSwitcher.tscn" id="3_ew8w1"]
+[ext_resource type="PackedScene" uid="uid://ckgdb5sapufkf" path="res://Entities/swing_door.tscn" id="4_elf8r"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_711si"]
 size = Vector3(50, 1, 50)
@@ -88,3 +89,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.56622, 0.5, 9.88821)
 
 [node name="SceneSwitcher" parent="Jitters" instance=ExtResource("3_ew8w1")]
 to_scene = "res://Maps/DemoRoom.tscn"
+
+[node name="Doors" parent="." instance=ExtResource("4_elf8r")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 3.281, 0.25, 5.474)

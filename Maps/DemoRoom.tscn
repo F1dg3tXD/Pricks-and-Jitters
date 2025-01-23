@@ -187,5 +187,8 @@ item_id = "MANGO"
 [node name="Player" parent="." instance=ExtResource("7_mm4nv")]
 transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, 2, 14)
 
+[node name="Button3" parent="." instance=ExtResource("13_2qjvi")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 1.78749, -2.86102e-06, 8.275)
+
 [connection signal="interacted" from="Button" to="Door" method="toggle"]
 [connection signal="interacted" from="Button2" to="MovingPlatform" method="toggle"]
