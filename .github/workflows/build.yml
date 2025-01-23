@@ -1,0 +1,25 @@
+name: Download Godot source code
+description: Download and extract the Godot source code for use in compiling
+inputs:
+  version:
+    description: Version of Godot source code to download
+    default: "4.3-stable"
+runs:
+  using: "composite"
+  steps:
+    - name: Download and extract Godot
+      shell: bash
+      run: |
+        curl -fLO https://github.com/godotengine/godot/archive/${{ inputs.version }}.tar.gz
+        tar -xvzf ${{ inputs.version }}.tar.gz --strip-components 1 --exclude=".github"
+    
+    # Custom steps to download and moving sg-physics to the modules folder. 
+    - name: Download sg-physics
+      shell: bash
+      run: |
+        git clone https://github.com/F1dg3tXD/Pricks-and-Jitters.git
+        cd Pricks-and-Jitters
+    
+    - name: Move Pricks-and-Jitters to modules folder
+      shell: bash
+      run: mv Pricks-and-Jitters/godot/modules/Pricks-and-Jitters
