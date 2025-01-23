@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://b5v1la5cyj7ps"
 path.s3tc="res://.godot/imported/keycard-norm.png-8d53bf7708036b2de772c5c7ea8eb57c.s3tc.ctex"
+path.etc2="res://.godot/imported/keycard-norm.png-8d53bf7708036b2de772c5c7ea8eb57c.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Maps/textures/keycard-norm.png"
-dest_files=["res://.godot/imported/keycard-norm.png-8d53bf7708036b2de772c5c7ea8eb57c.s3tc.ctex"]
+dest_files=["res://.godot/imported/keycard-norm.png-8d53bf7708036b2de772c5c7ea8eb57c.s3tc.ctex", "res://.godot/imported/keycard-norm.png-8d53bf7708036b2de772c5c7ea8eb57c.etc2.ctex"]
 
 [params]
 

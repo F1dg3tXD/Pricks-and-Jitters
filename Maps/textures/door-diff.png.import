@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://c0cjruqrs4g3k"
 path.bptc="res://.godot/imported/door-diff.png-155baa8f85a52219265782885ada98e1.bptc.ctex"
+path.astc="res://.godot/imported/door-diff.png-155baa8f85a52219265782885ada98e1.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Maps/textures/door-diff.png"
-dest_files=["res://.godot/imported/door-diff.png-155baa8f85a52219265782885ada98e1.bptc.ctex"]
+dest_files=["res://.godot/imported/door-diff.png-155baa8f85a52219265782885ada98e1.bptc.ctex", "res://.godot/imported/door-diff.png-155baa8f85a52219265782885ada98e1.astc.ctex"]
 
 [params]
 

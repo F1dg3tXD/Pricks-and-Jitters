@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dsuu25t7d8qvb"
 path.s3tc="res://.godot/imported/detective_Body_gloss.png-6ca516c81e08b0ae1a51eacb64dc15b8.s3tc.ctex"
+path.etc2="res://.godot/imported/detective_Body_gloss.png-6ca516c81e08b0ae1a51eacb64dc15b8.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Models/Characters/Detective/textures/detective_Body_gloss.png"
-dest_files=["res://.godot/imported/detective_Body_gloss.png-6ca516c81e08b0ae1a51eacb64dc15b8.s3tc.ctex"]
+dest_files=["res://.godot/imported/detective_Body_gloss.png-6ca516c81e08b0ae1a51eacb64dc15b8.s3tc.ctex", "res://.godot/imported/detective_Body_gloss.png-6ca516c81e08b0ae1a51eacb64dc15b8.etc2.ctex"]
 
 [params]
 

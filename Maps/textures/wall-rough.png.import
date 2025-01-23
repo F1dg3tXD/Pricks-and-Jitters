@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dxwtgkdir728"
 path.bptc="res://.godot/imported/wall-rough.png-c561fb6a1dd5c29df08164eeda550dc5.bptc.ctex"
+path.astc="res://.godot/imported/wall-rough.png-c561fb6a1dd5c29df08164eeda550dc5.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Maps/textures/wall-rough.png"
-dest_files=["res://.godot/imported/wall-rough.png-c561fb6a1dd5c29df08164eeda550dc5.bptc.ctex"]
+dest_files=["res://.godot/imported/wall-rough.png-c561fb6a1dd5c29df08164eeda550dc5.bptc.ctex", "res://.godot/imported/wall-rough.png-c561fb6a1dd5c29df08164eeda550dc5.astc.ctex"]
 
 [params]
 

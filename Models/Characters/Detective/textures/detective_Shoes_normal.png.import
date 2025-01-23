@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://7pervah8v108"
 path.s3tc="res://.godot/imported/detective_Shoes_normal.png-048fe722f4f071a31ed40e24c6db6bf2.s3tc.ctex"
+path.etc2="res://.godot/imported/detective_Shoes_normal.png-048fe722f4f071a31ed40e24c6db6bf2.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Models/Characters/Detective/textures/detective_Shoes_normal.png"
-dest_files=["res://.godot/imported/detective_Shoes_normal.png-048fe722f4f071a31ed40e24c6db6bf2.s3tc.ctex"]
+dest_files=["res://.godot/imported/detective_Shoes_normal.png-048fe722f4f071a31ed40e24c6db6bf2.s3tc.ctex", "res://.godot/imported/detective_Shoes_normal.png-048fe722f4f071a31ed40e24c6db6bf2.etc2.ctex"]
 
 [params]
 

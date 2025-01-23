@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://crkf3perc28un"
 path.bptc="res://.godot/imported/platform-diff.png-92049b3383c2de3f2eca85b605333a82.bptc.ctex"
+path.astc="res://.godot/imported/platform-diff.png-92049b3383c2de3f2eca85b605333a82.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Maps/textures/platform-diff.png"
-dest_files=["res://.godot/imported/platform-diff.png-92049b3383c2de3f2eca85b605333a82.bptc.ctex"]
+dest_files=["res://.godot/imported/platform-diff.png-92049b3383c2de3f2eca85b605333a82.bptc.ctex", "res://.godot/imported/platform-diff.png-92049b3383c2de3f2eca85b605333a82.astc.ctex"]
 
 [params]
 

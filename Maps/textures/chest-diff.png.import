@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://vleb88bpmq3t"
 path.bptc="res://.godot/imported/chest-diff.png-888166eeb42dae540274089d945d25ac.bptc.ctex"
+path.astc="res://.godot/imported/chest-diff.png-888166eeb42dae540274089d945d25ac.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Maps/textures/chest-diff.png"
-dest_files=["res://.godot/imported/chest-diff.png-888166eeb42dae540274089d945d25ac.bptc.ctex"]
+dest_files=["res://.godot/imported/chest-diff.png-888166eeb42dae540274089d945d25ac.bptc.ctex", "res://.godot/imported/chest-diff.png-888166eeb42dae540274089d945d25ac.astc.ctex"]
 
 [params]
 

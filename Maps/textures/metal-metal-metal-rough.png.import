@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://btl52ns2wlqjx"
 path.bptc="res://.godot/imported/metal-metal-metal-rough.png-85d776783c592e1da028de93fc85de67.bptc.ctex"
+path.astc="res://.godot/imported/metal-metal-metal-rough.png-85d776783c592e1da028de93fc85de67.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Maps/textures/metal-metal-metal-rough.png"
-dest_files=["res://.godot/imported/metal-metal-metal-rough.png-85d776783c592e1da028de93fc85de67.bptc.ctex"]
+dest_files=["res://.godot/imported/metal-metal-metal-rough.png-85d776783c592e1da028de93fc85de67.bptc.ctex", "res://.godot/imported/metal-metal-metal-rough.png-85d776783c592e1da028de93fc85de67.astc.ctex"]
 
 [params]
 

@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://ccmu6r4rxwvvv"
 path.s3tc="res://.godot/imported/Sombrero_(3).png-d110639b2617df9e96cffa851ee9afc4.s3tc.ctex"
+path.etc2="res://.godot/imported/Sombrero_(3).png-d110639b2617df9e96cffa851ee9afc4.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Models/Characters/Pricks/textures/Sombrero_(3).png"
-dest_files=["res://.godot/imported/Sombrero_(3).png-d110639b2617df9e96cffa851ee9afc4.s3tc.ctex"]
+dest_files=["res://.godot/imported/Sombrero_(3).png-d110639b2617df9e96cffa851ee9afc4.s3tc.ctex", "res://.godot/imported/Sombrero_(3).png-d110639b2617df9e96cffa851ee9afc4.etc2.ctex"]
 
 [params]
 

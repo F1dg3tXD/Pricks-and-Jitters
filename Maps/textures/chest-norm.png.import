@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dr25i3751bb2h"
 path.s3tc="res://.godot/imported/chest-norm.png-211eefa5e5d436eaec08020ef8ca4932.s3tc.ctex"
+path.etc2="res://.godot/imported/chest-norm.png-211eefa5e5d436eaec08020ef8ca4932.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Maps/textures/chest-norm.png"
-dest_files=["res://.godot/imported/chest-norm.png-211eefa5e5d436eaec08020ef8ca4932.s3tc.ctex"]
+dest_files=["res://.godot/imported/chest-norm.png-211eefa5e5d436eaec08020ef8ca4932.s3tc.ctex", "res://.godot/imported/chest-norm.png-211eefa5e5d436eaec08020ef8ca4932.etc2.ctex"]
 
 [params]
 
