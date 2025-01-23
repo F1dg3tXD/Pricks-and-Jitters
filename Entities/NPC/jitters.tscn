@@ -211,7 +211,7 @@ script = ExtResource("4_s4ess")
 properties = SubResource("Resource_efduo")
 
 [node name="WiggleBone4" type="BoneAttachment3D" parent="rig/Skeleton3D" index="5"]
-transform = Transform3D(1, 6.17425e-17, -1.68806e-17, -1.68804e-17, 0.508772, 0.860901, 6.17425e-17, -0.860901, 0.508772, 0, 0.821363, -1.6765)
+transform = Transform3D(1, 6.17425e-17, -1.68806e-17, -1.68804e-17, 0.508773, 0.860901, 6.17425e-17, -0.860901, 0.508772, -6.61744e-24, 0.821363, -1.6765)
 bone_name = "tail.002"
 bone_idx = 18
 script = ExtResource("4_s4ess")

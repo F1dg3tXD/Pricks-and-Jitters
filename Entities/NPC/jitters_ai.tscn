@@ -1,0 +1,91 @@
+[gd_scene load_steps=16 format=3 uid="uid://kmp7d368x0pp"]
+
+[ext_resource type="PackedScene" uid="uid://dhl7kj6rqh2m0" path="res://Entities/NPC/jitters.tscn" id="1_dtlbd"]
+[ext_resource type="Script" path="res://Entities/NPC/jitters_ai.gd" id="1_t2vi5"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_adh7y"]
+radius = 1.0
+height = 3.0
+
+[sub_resource type="BlackboardPlan" id="BlackboardPlan_omqdw"]
+var/see_player/name = &"see_player"
+var/see_player/type = 1
+var/see_player/value = false
+var/see_player/hint = 0
+var/see_player/hint_string = ""
+
+[sub_resource type="BBNode" id="BBNode_2o0bw"]
+saved_value = NodePath("BTPlayer/AnimationPlayer")
+resource_name = "BTPlayer/AnimationPlayer"
+
+[sub_resource type="BTPlayAnimation" id="BTPlayAnimation_fsxqb"]
+animation_player = SubResource("BBNode_2o0bw")
+animation_name = &"idle"
+
+[sub_resource type="BTCheckTrigger" id="BTCheckTrigger_vlxop"]
+variable = &"see_player"
+
+[sub_resource type="BTRandomWait" id="BTRandomWait_wkxo5"]
+max_duration = 5.0
+
+[sub_resource type="BTStopAnimation" id="BTStopAnimation_u2bs1"]
+animation_player = SubResource("BBNode_2o0bw")
+animation_name = &"idle"
+
+[sub_resource type="BTSequence" id="BTSequence_qpf8s"]
+custom_name = "Idle"
+children = [SubResource("BTPlayAnimation_fsxqb"), SubResource("BTCheckTrigger_vlxop"), SubResource("BTRandomWait_wkxo5"), SubResource("BTStopAnimation_u2bs1")]
+
+[sub_resource type="BehaviorTree" id="BehaviorTree_3jbtm"]
+blackboard_plan = SubResource("BlackboardPlan_omqdw")
+root_task = SubResource("BTSequence_qpf8s")
+
+[sub_resource type="BlackboardPlan" id="BlackboardPlan_aw7ff"]
+
+[sub_resource type="Animation" id="Animation_ad6mf"]
+resource_name = "idle"
+loop_mode = 1
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Jitters")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 0.5, 1, 0, -0.1, 0, 1, 1, 0, 0, 0)
+
+[sub_resource type="Animation" id="Animation_ymle3"]
+length = 0.001
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Jitters")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0)
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_o2rn1"]
+_data = {
+"RESET": SubResource("Animation_ymle3"),
+"idle": SubResource("Animation_ad6mf")
+}
+
+[node name="Jitters_AI" type="CharacterBody3D"]
+script = ExtResource("1_t2vi5")
+
+[node name="Jitters" parent="." instance=ExtResource("1_dtlbd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+shape = SubResource("CapsuleShape3D_adh7y")
+
+[node name="BTPlayer" type="BTPlayer" parent="."]
+behavior_tree = SubResource("BehaviorTree_3jbtm")
+blackboard_plan = SubResource("BlackboardPlan_aw7ff")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_o2rn1")
+}
+
+[editable path="Jitters"]
