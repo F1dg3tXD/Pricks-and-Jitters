@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cmvudfv03wcmd"]
+[gd_scene load_steps=15 format=3 uid="uid://cmvudfv03wcmd"]
 
 [ext_resource type="Script" path="res://Entities/Player/player.gd" id="1_iyqmc"]
 [ext_resource type="Texture2D" uid="uid://dxn8y4celdh0r" path="res://Entities/Player/hurt.png" id="2_ehnts"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://Entities/Player/ui.gd" id="3_uw0jf"]
 [ext_resource type="FontFile" uid="uid://bguf3rdjitpq7" path="res://Fonts/Poppins-Regular.ttf" id="5_87d1x"]
 [ext_resource type="Texture2D" uid="uid://bidw8qikasua4" path="res://Entities/Player/crosshair.png" id="6_20gd7"]
+[ext_resource type="PackedScene" uid="uid://dcl0yjn1r3u67" path="res://Models/Characters/Detective/Detective.tscn" id="7_pytkq"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_b0b6p"]
 resource_local_to_scene = true
@@ -44,6 +45,15 @@ shape = SubResource("CapsuleShape3D_b0b6p")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 
 [node name="Camera3D" type="Camera3D" parent="Head"]
+
+[node name="IK_Targets" type="Node3D" parent="Head/Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
+
+[node name="Hand_L_Target" type="Node3D" parent="Head/Camera3D/IK_Targets"]
+transform = Transform3D(0.121953, -0.210564, 0.969944, -0.395321, -0.906684, -0.147127, 0.910411, -0.365496, -0.193813, -0.343722, 0.960778, 0.014214)
+
+[node name="Hand_R_Target" type="Node3D" parent="Head/Camera3D/IK_Targets"]
+transform = Transform3D(-0.464881, 0.435261, -0.770995, 0.532706, 0.833063, 0.149099, 0.707184, -0.3414, -0.619141, 0.267845, 1.77829, -0.398994)
 
 [node name="InteractRay" parent="Head" instance=ExtResource("2_h0cin")]
 
@@ -244,5 +254,27 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 
 enabled = false
 target_position = Vector3(0, -0.5, 0)
 
+[node name="Detective" parent="." instance=ExtResource("7_pytkq")]
+transform = Transform3D(-0.785617, 0, -6.86808e-08, 0, 0.785617, 0, 6.86808e-08, 0, -0.785617, 0, 0, 0)
+
+[node name="FPV" parent="Detective/Armature/Skeleton3D" index="0"]
+transform = Transform3D(-1, -1.05782e-12, -8.74299e-08, -1.03784e-12, 1, -2.30968e-07, 8.74299e-08, -2.23517e-07, -1, 5.5323e-05, 1.51856, 0.122644)
+
+[node name="detective" parent="Detective/Armature/Skeleton3D" index="1"]
+cast_shadow = 3
+
+[node name="SkeletonIK3D_L" type="SkeletonIK3D" parent="Detective/Armature/Skeleton3D" index="3"]
+transform = Transform3D(0.987634, 0, -0.156779, 0, 1, 0, 0.156779, 0, 0.987634, 0, 0, 0)
+root_bone = &"mixamorig_LeftArm"
+tip_bone = &"mixamorig_LeftHand"
+target_node = NodePath("../../../../Head/Camera3D/IK_Targets/Hand_L_Target")
+
+[node name="SkeletonIK3D_R" type="SkeletonIK3D" parent="Detective/Armature/Skeleton3D" index="4"]
+root_bone = &"mixamorig_RightArm"
+tip_bone = &"mixamorig_RightHand"
+target_node = NodePath("../../../../Head/Camera3D/IK_Targets/Hand_R_Target")
+
 [connection signal="pressed" from="UI/GameOver/BoxContainer/BoxContainer/RestartButton" to="UI" method="_on_restart_button_pressed"]
 [connection signal="pressed" from="UI/GameOver/BoxContainer/BoxContainer/QuitButton" to="UI" method="_on_quit_button_pressed"]
+
+[editable path="Detective"]

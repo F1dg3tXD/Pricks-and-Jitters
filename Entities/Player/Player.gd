@@ -1,7 +1,6 @@
 extends CharacterBody3D
 class_name Player
 
-
 @export_subgroup("Movement")
 @export var speed = 8.0
 @export var accel = 16.0

@@ -1,5 +1,8 @@
 extends Node3D
 
+@onready var open: AudioStreamPlayer3D = $open
+@onready var close: AudioStreamPlayer3D = $close
+
 var playback : AnimationNodeStateMachinePlayback
 var is_open := false
 
@@ -12,5 +15,7 @@ func toggle(_body):
 	
 	if is_open:
 		playback.travel("opening")
+		open.play()
 	else:
 		playback.travel("closing")
+		close.play()
