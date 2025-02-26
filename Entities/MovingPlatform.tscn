@@ -1,13 +1,13 @@
 [gd_scene load_steps=21 format=4 uid="uid://bs3onrkfk3cq7"]
 
-[ext_resource type="Texture2D" uid="uid://crkf3perc28un" path="res://Maps/textures/platform-diff.png" id="1_hav7a"]
-[ext_resource type="Script" path="res://Entities/movingPlatform.gd" id="1_p77f3"]
-[ext_resource type="Texture2D" uid="uid://unfxjjokm0qn" path="res://Maps/textures/platform-metal-platform-rough.png" id="2_yq822"]
-[ext_resource type="Texture2D" uid="uid://bjcqeolk43bqq" path="res://Maps/textures/platform-norm.png" id="3_s351e"]
-[ext_resource type="Texture2D" uid="uid://drlhon23rxqt0" path="res://Maps/textures/metal-diff.png" id="4_b2364"]
-[ext_resource type="Texture2D" uid="uid://btl52ns2wlqjx" path="res://Maps/textures/metal-metal-metal-rough.png" id="5_b6qi7"]
-[ext_resource type="Texture2D" uid="uid://c8rt3cs0redr3" path="res://Maps/textures/metal-norm.png" id="6_x23p8"]
-[ext_resource type="PackedScene" uid="uid://b4opjllgffad7" path="res://Entities/Button.tscn" id="8_qaiea"]
+[ext_resource type="Texture2D" uid="uid://crkf3perc28un" path="res://maps/textures/platform-diff.png" id="1_hav7a"]
+[ext_resource type="Script" path="res://entities/movingPlatform.gd" id="1_p77f3"]
+[ext_resource type="Texture2D" uid="uid://unfxjjokm0qn" path="res://maps/textures/platform-metal-platform-rough.png" id="2_yq822"]
+[ext_resource type="Texture2D" uid="uid://bjcqeolk43bqq" path="res://maps/textures/platform-norm.png" id="3_s351e"]
+[ext_resource type="Texture2D" uid="uid://drlhon23rxqt0" path="res://maps/textures/metal-diff.png" id="4_b2364"]
+[ext_resource type="Texture2D" uid="uid://btl52ns2wlqjx" path="res://maps/textures/metal-metal-metal-rough.png" id="5_b6qi7"]
+[ext_resource type="Texture2D" uid="uid://c8rt3cs0redr3" path="res://maps/textures/metal-norm.png" id="6_x23p8"]
+[ext_resource type="PackedScene" uid="uid://b4opjllgffad7" path="res://entities/Button.tscn" id="8_qaiea"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r4y31"]
 resource_name = "platform"
@@ -179,7 +179,6 @@ _data = {
 point_count = 2
 
 [node name="MovingPlatform" type="Node3D"]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 script = ExtResource("1_p77f3")
 
 [node name="CharacterBody3D" type="CharacterBody3D" parent="."]
@@ -200,6 +199,7 @@ skeleton = NodePath("")
 
 [node name="Button" parent="CharacterBody3D" instance=ExtResource("8_qaiea")]
 transform = Transform3D(-0.707106, -0.5, -0.5, -6.18169e-08, 0.707107, -0.707107, 0.707106, -0.5, -0.5, 2, 2, 2)
+script = null
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 
@@ -219,5 +219,3 @@ transform = Transform3D(-4.37113e-08, 0.999993, -4.3711e-08, 0, -4.37111e-08, -0
 [node name="RemoteTransform3D" type="RemoteTransform3D" parent="Path3D/PathFollow3D"]
 transform = Transform3D(-8.74226e-08, -5.46338e-15, -1, 1, -2.06057e-13, -8.74226e-08, -1.84741e-13, -1, 2.68633e-16, 0, 0, 0)
 remote_path = NodePath("../../../CharacterBody3D")
-
-[connection signal="interacted" from="CharacterBody3D/Button" to="." method="toggle"]

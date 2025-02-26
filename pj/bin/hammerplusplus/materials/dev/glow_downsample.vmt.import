@@ -1,0 +1,14 @@
+[remap]
+
+importer="VMT"
+type="Material"
+uid="uid://dg7hc6et7cau5"
+path="res://.godot/imported/glow_downsample.vmt-04a3a2d5a011f4ff68feb7280cb1a4fc.vmt.tres"
+
+[deps]
+
+source_file="res://pj/bin/hammerplusplus/materials/dev/glow_downsample.vmt"
+dest_files=["res://.godot/imported/glow_downsample.vmt-04a3a2d5a011f4ff68feb7280cb1a4fc.vmt.tres"]
+
+[params]
+

@@ -1,10 +1,10 @@
 [gd_scene load_steps=22 format=4 uid="uid://0vfe1qnxrku4"]
 
-[ext_resource type="Texture2D" uid="uid://vleb88bpmq3t" path="res://Maps/textures/chest-diff.png" id="1_mdkaf"]
-[ext_resource type="Script" path="res://Entities/chest.gd" id="1_y6p03"]
-[ext_resource type="Texture2D" uid="uid://bojvw7ym0w7ng" path="res://Maps/textures/chest-emit.png" id="2_1kyuj"]
-[ext_resource type="Texture2D" uid="uid://b7nugjkccjulf" path="res://Maps/textures/chest-metal-chest-rough.png" id="3_34ldq"]
-[ext_resource type="Texture2D" uid="uid://dr25i3751bb2h" path="res://Maps/textures/chest-norm.png" id="4_ns7pf"]
+[ext_resource type="Texture2D" uid="uid://vleb88bpmq3t" path="res://maps/textures/chest-diff.png" id="1_mdkaf"]
+[ext_resource type="Script" path="res://entities/chest.gd" id="1_y6p03"]
+[ext_resource type="Texture2D" uid="uid://bojvw7ym0w7ng" path="res://maps/textures/chest-emit.png" id="2_1kyuj"]
+[ext_resource type="Texture2D" uid="uid://b7nugjkccjulf" path="res://maps/textures/chest-metal-chest-rough.png" id="3_34ldq"]
+[ext_resource type="Texture2D" uid="uid://dr25i3751bb2h" path="res://maps/textures/chest-norm.png" id="4_ns7pf"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_66pjp"]
 size = Vector3(3.1, 2.1, 2.1)
@@ -152,7 +152,6 @@ states/ChestOpen/position = Vector2(635, 100)
 transitions = ["Start", "ChestClose", SubResource("AnimationNodeStateMachineTransition_xsaeu"), "ChestClose", "ChestOpen", SubResource("AnimationNodeStateMachineTransition_1aey4"), "ChestOpen", "ChestClose", SubResource("AnimationNodeStateMachineTransition_ay72v")]
 
 [node name="Chest" type="Area3D"]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 script = ExtResource("1_y6p03")
 prompt_message = "Open"
 

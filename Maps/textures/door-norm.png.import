@@ -3,8 +3,8 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dggfcvvhfe11o"
-path.bptc="res://.godot/imported/door-norm.png-88063061612e87f72a58dc0a42d0f72c.bptc.ctex"
-path.astc="res://.godot/imported/door-norm.png-88063061612e87f72a58dc0a42d0f72c.astc.ctex"
+path.bptc="res://.godot/imported/door-norm.png-c044a149130d4dffde110847ba33cdaf.bptc.ctex"
+path.astc="res://.godot/imported/door-norm.png-c044a149130d4dffde110847ba33cdaf.astc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://Maps/textures/door-norm.png"
-dest_files=["res://.godot/imported/door-norm.png-88063061612e87f72a58dc0a42d0f72c.bptc.ctex", "res://.godot/imported/door-norm.png-88063061612e87f72a58dc0a42d0f72c.astc.ctex"]
+source_file="res://maps/textures/door-norm.png"
+dest_files=["res://.godot/imported/door-norm.png-c044a149130d4dffde110847ba33cdaf.bptc.ctex", "res://.godot/imported/door-norm.png-c044a149130d4dffde110847ba33cdaf.astc.ctex"]
 
 [params]
 

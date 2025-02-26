@@ -3,8 +3,8 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://5fbtep0ppu40"
-path.s3tc="res://.godot/imported/detective_Shoes_diffuse.png-d4642587b09d2d9a852438dd29405d07.s3tc.ctex"
-path.etc2="res://.godot/imported/detective_Shoes_diffuse.png-d4642587b09d2d9a852438dd29405d07.etc2.ctex"
+path.s3tc="res://.godot/imported/detective_Shoes_diffuse.png-f9ac93084d9e06ee49fc62c50e846757.s3tc.ctex"
+path.etc2="res://.godot/imported/detective_Shoes_diffuse.png-f9ac93084d9e06ee49fc62c50e846757.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://Models/Characters/Detective/textures/detective_Shoes_diffuse.png"
-dest_files=["res://.godot/imported/detective_Shoes_diffuse.png-d4642587b09d2d9a852438dd29405d07.s3tc.ctex", "res://.godot/imported/detective_Shoes_diffuse.png-d4642587b09d2d9a852438dd29405d07.etc2.ctex"]
+source_file="res://models/Characters/Detective/textures/detective_Shoes_diffuse.png"
+dest_files=["res://.godot/imported/detective_Shoes_diffuse.png-f9ac93084d9e06ee49fc62c50e846757.s3tc.ctex", "res://.godot/imported/detective_Shoes_diffuse.png-f9ac93084d9e06ee49fc62c50e846757.etc2.ctex"]
 
 [params]
 

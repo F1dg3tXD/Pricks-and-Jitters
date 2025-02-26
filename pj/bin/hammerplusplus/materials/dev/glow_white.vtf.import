@@ -1,0 +1,13 @@
+[remap]
+
+importer="VTF"
+type="Texture"
+uid="uid://fee4vqj7pgl2"
+valid=false
+
+[deps]
+
+source_file="res://pj/bin/hammerplusplus/materials/dev/glow_white.vtf"
+
+[params]
+

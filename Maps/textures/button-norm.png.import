@@ -3,8 +3,8 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ckqxuxuauel5g"
-path.s3tc="res://.godot/imported/button-norm.png-f92ca1635090a94739cd0f16669b0373.s3tc.ctex"
-path.etc2="res://.godot/imported/button-norm.png-f92ca1635090a94739cd0f16669b0373.etc2.ctex"
+path.s3tc="res://.godot/imported/button-norm.png-be23e94432fadc9f87fd08005ea727a2.s3tc.ctex"
+path.etc2="res://.godot/imported/button-norm.png-be23e94432fadc9f87fd08005ea727a2.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://Maps/textures/button-norm.png"
-dest_files=["res://.godot/imported/button-norm.png-f92ca1635090a94739cd0f16669b0373.s3tc.ctex", "res://.godot/imported/button-norm.png-f92ca1635090a94739cd0f16669b0373.etc2.ctex"]
+source_file="res://maps/textures/button-norm.png"
+dest_files=["res://.godot/imported/button-norm.png-be23e94432fadc9f87fd08005ea727a2.s3tc.ctex", "res://.godot/imported/button-norm.png-be23e94432fadc9f87fd08005ea727a2.etc2.ctex"]
 
 [params]
 

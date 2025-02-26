@@ -3,8 +3,8 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bwvoyiab80ojw"
-path.s3tc="res://.godot/imported/detective_Hat_specular.png-6ce5036c1327fce4d4f08b451edc89c5.s3tc.ctex"
-path.etc2="res://.godot/imported/detective_Hat_specular.png-6ce5036c1327fce4d4f08b451edc89c5.etc2.ctex"
+path.s3tc="res://.godot/imported/detective_Hat_specular.png-6df3c02ccc5a5328ee0f94bb3fc9a19a.s3tc.ctex"
+path.etc2="res://.godot/imported/detective_Hat_specular.png-6df3c02ccc5a5328ee0f94bb3fc9a19a.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://Models/Characters/Detective/textures/detective_Hat_specular.png"
-dest_files=["res://.godot/imported/detective_Hat_specular.png-6ce5036c1327fce4d4f08b451edc89c5.s3tc.ctex", "res://.godot/imported/detective_Hat_specular.png-6ce5036c1327fce4d4f08b451edc89c5.etc2.ctex"]
+source_file="res://models/Characters/Detective/textures/detective_Hat_specular.png"
+dest_files=["res://.godot/imported/detective_Hat_specular.png-6df3c02ccc5a5328ee0f94bb3fc9a19a.s3tc.ctex", "res://.godot/imported/detective_Hat_specular.png-6df3c02ccc5a5328ee0f94bb3fc9a19a.etc2.ctex"]
 
 [params]
 

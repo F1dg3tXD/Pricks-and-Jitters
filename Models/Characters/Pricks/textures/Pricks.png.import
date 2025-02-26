@@ -3,8 +3,8 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c1p4w1k82k1yu"
-path.s3tc="res://.godot/imported/Pricks.png-1ce615a1542ec604d3eca18e18b478d8.s3tc.ctex"
-path.etc2="res://.godot/imported/Pricks.png-1ce615a1542ec604d3eca18e18b478d8.etc2.ctex"
+path.s3tc="res://.godot/imported/Pricks.png-3ed1762273e2f6e4082e8c1ddfc9ed61.s3tc.ctex"
+path.etc2="res://.godot/imported/Pricks.png-3ed1762273e2f6e4082e8c1ddfc9ed61.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://Models/Characters/Pricks/textures/Pricks.png"
-dest_files=["res://.godot/imported/Pricks.png-1ce615a1542ec604d3eca18e18b478d8.s3tc.ctex", "res://.godot/imported/Pricks.png-1ce615a1542ec604d3eca18e18b478d8.etc2.ctex"]
+source_file="res://models/Characters/Pricks/textures/Pricks.png"
+dest_files=["res://.godot/imported/Pricks.png-3ed1762273e2f6e4082e8c1ddfc9ed61.s3tc.ctex", "res://.godot/imported/Pricks.png-3ed1762273e2f6e4082e8c1ddfc9ed61.etc2.ctex"]
 
 [params]
 

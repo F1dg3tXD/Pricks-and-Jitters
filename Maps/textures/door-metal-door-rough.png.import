@@ -3,8 +3,8 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://qp25mqqwg415"
-path.bptc="res://.godot/imported/door-metal-door-rough.png-239f5724ff4428f42cbef43fb1861314.bptc.ctex"
-path.astc="res://.godot/imported/door-metal-door-rough.png-239f5724ff4428f42cbef43fb1861314.astc.ctex"
+path.bptc="res://.godot/imported/door-metal-door-rough.png-58ca90312deee09b3c1c25a0ec371bfc.bptc.ctex"
+path.astc="res://.godot/imported/door-metal-door-rough.png-58ca90312deee09b3c1c25a0ec371bfc.astc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://Maps/textures/door-metal-door-rough.png"
-dest_files=["res://.godot/imported/door-metal-door-rough.png-239f5724ff4428f42cbef43fb1861314.bptc.ctex", "res://.godot/imported/door-metal-door-rough.png-239f5724ff4428f42cbef43fb1861314.astc.ctex"]
+source_file="res://maps/textures/door-metal-door-rough.png"
+dest_files=["res://.godot/imported/door-metal-door-rough.png-58ca90312deee09b3c1c25a0ec371bfc.bptc.ctex", "res://.godot/imported/door-metal-door-rough.png-58ca90312deee09b3c1c25a0ec371bfc.astc.ctex"]
 
 [params]
 

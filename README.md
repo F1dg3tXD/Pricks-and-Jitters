@@ -9,3 +9,9 @@
 
 ## Why:
 Bad mascot horror is trending now, and it started as a joke, but then my interactions with Walaber happened, and I got inspired to actually do it.
+
+## TODO:
+* Enemy AI system
+* Better Map Editor for Dumbass Devs
+* Scale Player scale height 2m.
+* Fix scene switcher issue.

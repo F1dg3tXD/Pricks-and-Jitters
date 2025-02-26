@@ -3,8 +3,8 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dr25i3751bb2h"
-path.s3tc="res://.godot/imported/chest-norm.png-211eefa5e5d436eaec08020ef8ca4932.s3tc.ctex"
-path.etc2="res://.godot/imported/chest-norm.png-211eefa5e5d436eaec08020ef8ca4932.etc2.ctex"
+path.s3tc="res://.godot/imported/chest-norm.png-0766c5ce32f0aa6473f3618ebc141a34.s3tc.ctex"
+path.etc2="res://.godot/imported/chest-norm.png-0766c5ce32f0aa6473f3618ebc141a34.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://Maps/textures/chest-norm.png"
-dest_files=["res://.godot/imported/chest-norm.png-211eefa5e5d436eaec08020ef8ca4932.s3tc.ctex", "res://.godot/imported/chest-norm.png-211eefa5e5d436eaec08020ef8ca4932.etc2.ctex"]
+source_file="res://maps/textures/chest-norm.png"
+dest_files=["res://.godot/imported/chest-norm.png-0766c5ce32f0aa6473f3618ebc141a34.s3tc.ctex", "res://.godot/imported/chest-norm.png-0766c5ce32f0aa6473f3618ebc141a34.etc2.ctex"]
 
 [params]
 

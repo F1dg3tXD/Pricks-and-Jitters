@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://884ok58vecac"
-path="res://.godot/imported/Diinoz_Temp.glb-36068d6d591debe17e4d9dad809deb32.scn"
+path="res://.godot/imported/Diinoz_Temp.glb-1b54f7df97c1c0cc6260c705546fc190.scn"
 
 [deps]
 
-source_file="res://Models/Props/Diinoz_Temp.glb"
-dest_files=["res://.godot/imported/Diinoz_Temp.glb-36068d6d591debe17e4d9dad809deb32.scn"]
+source_file="res://models/Props/Diinoz_Temp.glb"
+dest_files=["res://.godot/imported/Diinoz_Temp.glb-1b54f7df97c1c0cc6260c705546fc190.scn"]
 
 [params]
 

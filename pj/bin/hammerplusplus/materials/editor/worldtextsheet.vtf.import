@@ -1,0 +1,14 @@
+[remap]
+
+importer="VTF"
+type="Texture"
+uid="uid://c157ipucwwd2f"
+path="res://.godot/imported/worldtextsheet.vtf-9aaebd97f9c01ec4dab37c2f1e039449.vtf.tres"
+
+[deps]
+
+source_file="res://pj/bin/hammerplusplus/materials/editor/worldtextsheet.vtf"
+dest_files=["res://.godot/imported/worldtextsheet.vtf-9aaebd97f9c01ec4dab37c2f1e039449.vtf.tres"]
+
+[params]
+

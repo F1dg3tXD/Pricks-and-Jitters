@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://x72fynptd4i3"
-path="res://.godot/imported/Pricks.blend-38e9a4338cffef0fe077b2ffac40522a.scn"
+path="res://.godot/imported/Pricks.blend-d6fca1f4fabbbb38ae96a7273ade3929.scn"
 
 [deps]
 
-source_file="res://Models/Characters/Pricks/Pricks.blend"
-dest_files=["res://.godot/imported/Pricks.blend-38e9a4338cffef0fe077b2ffac40522a.scn"]
+source_file="res://models/Characters/Pricks/Pricks.blend"
+dest_files=["res://.godot/imported/Pricks.blend-d6fca1f4fabbbb38ae96a7273ade3929.scn"]
 
 [params]
 

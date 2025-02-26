@@ -3,8 +3,8 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cb4p5jipyhxk0"
-path.s3tc="res://.godot/imported/detective_Glove_diffuse.png-51e6bbaa726ae611390da8ce6f5814ba.s3tc.ctex"
-path.etc2="res://.godot/imported/detective_Glove_diffuse.png-51e6bbaa726ae611390da8ce6f5814ba.etc2.ctex"
+path.s3tc="res://.godot/imported/detective_Glove_diffuse.png-1e9612a2c20d2a9f1f29f69c6f8a6d3f.s3tc.ctex"
+path.etc2="res://.godot/imported/detective_Glove_diffuse.png-1e9612a2c20d2a9f1f29f69c6f8a6d3f.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://Models/Characters/Detective/textures/detective_Glove_diffuse.png"
-dest_files=["res://.godot/imported/detective_Glove_diffuse.png-51e6bbaa726ae611390da8ce6f5814ba.s3tc.ctex", "res://.godot/imported/detective_Glove_diffuse.png-51e6bbaa726ae611390da8ce6f5814ba.etc2.ctex"]
+source_file="res://models/Characters/Detective/textures/detective_Glove_diffuse.png"
+dest_files=["res://.godot/imported/detective_Glove_diffuse.png-1e9612a2c20d2a9f1f29f69c6f8a6d3f.s3tc.ctex", "res://.godot/imported/detective_Glove_diffuse.png-1e9612a2c20d2a9f1f29f69c6f8a6d3f.etc2.ctex"]
 
 [params]
 

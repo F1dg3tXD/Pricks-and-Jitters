@@ -3,8 +3,8 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://blgxuux27qvsi"
-path.s3tc="res://.godot/imported/detective_Body_normal.png-e12afc3c94888378350ebd5087de1689.s3tc.ctex"
-path.etc2="res://.godot/imported/detective_Body_normal.png-e12afc3c94888378350ebd5087de1689.etc2.ctex"
+path.s3tc="res://.godot/imported/detective_Body_normal.png-9314340982343e83937c97b24b909c85.s3tc.ctex"
+path.etc2="res://.godot/imported/detective_Body_normal.png-9314340982343e83937c97b24b909c85.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://Models/Characters/Detective/textures/detective_Body_normal.png"
-dest_files=["res://.godot/imported/detective_Body_normal.png-e12afc3c94888378350ebd5087de1689.s3tc.ctex", "res://.godot/imported/detective_Body_normal.png-e12afc3c94888378350ebd5087de1689.etc2.ctex"]
+source_file="res://models/Characters/Detective/textures/detective_Body_normal.png"
+dest_files=["res://.godot/imported/detective_Body_normal.png-9314340982343e83937c97b24b909c85.s3tc.ctex", "res://.godot/imported/detective_Body_normal.png-9314340982343e83937c97b24b909c85.etc2.ctex"]
 
 [params]
 

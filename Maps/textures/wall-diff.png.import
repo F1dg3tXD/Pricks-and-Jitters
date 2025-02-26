@@ -3,8 +3,8 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ddklmh24evc4h"
-path.bptc="res://.godot/imported/wall-diff.png-f42e85ba7ea95fab4b2caff32751a5dd.bptc.ctex"
-path.astc="res://.godot/imported/wall-diff.png-f42e85ba7ea95fab4b2caff32751a5dd.astc.ctex"
+path.bptc="res://.godot/imported/wall-diff.png-8ae1d3d5091a96680e677a7c15ad9aa6.bptc.ctex"
+path.astc="res://.godot/imported/wall-diff.png-8ae1d3d5091a96680e677a7c15ad9aa6.astc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://Maps/textures/wall-diff.png"
-dest_files=["res://.godot/imported/wall-diff.png-f42e85ba7ea95fab4b2caff32751a5dd.bptc.ctex", "res://.godot/imported/wall-diff.png-f42e85ba7ea95fab4b2caff32751a5dd.astc.ctex"]
+source_file="res://maps/textures/wall-diff.png"
+dest_files=["res://.godot/imported/wall-diff.png-8ae1d3d5091a96680e677a7c15ad9aa6.bptc.ctex", "res://.godot/imported/wall-diff.png-8ae1d3d5091a96680e677a7c15ad9aa6.astc.ctex"]
 
 [params]
 

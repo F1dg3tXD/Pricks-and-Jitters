@@ -1,0 +1,14 @@
+[remap]
+
+importer="VTF"
+type="Texture"
+uid="uid://vv3yp4ot2rb7"
+path="res://.godot/imported/spot_sheet_color.vtf-a1a78ef2507f138497d5d3a32261f5b3.vtf.tres"
+
+[deps]
+
+source_file="res://pj/bin/hammerplusplus/materials/models/editor/spot_sheet_color.vtf"
+dest_files=["res://.godot/imported/spot_sheet_color.vtf-a1a78ef2507f138497d5d3a32261f5b3.vtf.tres"]
+
+[params]
+

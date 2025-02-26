@@ -3,8 +3,8 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://yh21hrrxkkg1"
-path.s3tc="res://.godot/imported/detective_Top_gloss.png-ac436a49545c6987cd96fd05106bdf12.s3tc.ctex"
-path.etc2="res://.godot/imported/detective_Top_gloss.png-ac436a49545c6987cd96fd05106bdf12.etc2.ctex"
+path.s3tc="res://.godot/imported/detective_Top_gloss.png-f4c34387ebe8a2ae064cb0c57c36c337.s3tc.ctex"
+path.etc2="res://.godot/imported/detective_Top_gloss.png-f4c34387ebe8a2ae064cb0c57c36c337.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://Models/Characters/Detective/textures/detective_Top_gloss.png"
-dest_files=["res://.godot/imported/detective_Top_gloss.png-ac436a49545c6987cd96fd05106bdf12.s3tc.ctex", "res://.godot/imported/detective_Top_gloss.png-ac436a49545c6987cd96fd05106bdf12.etc2.ctex"]
+source_file="res://models/Characters/Detective/textures/detective_Top_gloss.png"
+dest_files=["res://.godot/imported/detective_Top_gloss.png-f4c34387ebe8a2ae064cb0c57c36c337.s3tc.ctex", "res://.godot/imported/detective_Top_gloss.png-f4c34387ebe8a2ae064cb0c57c36c337.etc2.ctex"]
 
 [params]
 

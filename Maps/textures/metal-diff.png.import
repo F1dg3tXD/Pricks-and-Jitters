@@ -3,8 +3,8 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://drlhon23rxqt0"
-path.bptc="res://.godot/imported/metal-diff.png-4b9f9971cd77943ab1f940824b14e8ac.bptc.ctex"
-path.astc="res://.godot/imported/metal-diff.png-4b9f9971cd77943ab1f940824b14e8ac.astc.ctex"
+path.bptc="res://.godot/imported/metal-diff.png-d74c5d15cdc19b3943d26ece1bfa47d1.bptc.ctex"
+path.astc="res://.godot/imported/metal-diff.png-d74c5d15cdc19b3943d26ece1bfa47d1.astc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://Maps/textures/metal-diff.png"
-dest_files=["res://.godot/imported/metal-diff.png-4b9f9971cd77943ab1f940824b14e8ac.bptc.ctex", "res://.godot/imported/metal-diff.png-4b9f9971cd77943ab1f940824b14e8ac.astc.ctex"]
+source_file="res://maps/textures/metal-diff.png"
+dest_files=["res://.godot/imported/metal-diff.png-d74c5d15cdc19b3943d26ece1bfa47d1.bptc.ctex", "res://.godot/imported/metal-diff.png-d74c5d15cdc19b3943d26ece1bfa47d1.astc.ctex"]
 
 [params]
 

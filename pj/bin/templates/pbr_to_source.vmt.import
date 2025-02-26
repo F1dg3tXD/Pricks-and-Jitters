@@ -1,0 +1,14 @@
+[remap]
+
+importer="VMT"
+type="Material"
+uid="uid://c3m72pgckbvi3"
+path="res://.godot/imported/pbr_to_source.vmt-5bf809f52dd55190e4321c1ebe182cec.vmt.tres"
+
+[deps]
+
+source_file="res://pj/bin/templates/pbr_to_source.vmt"
+dest_files=["res://.godot/imported/pbr_to_source.vmt-5bf809f52dd55190e4321c1ebe182cec.vmt.tres"]
+
+[params]
+

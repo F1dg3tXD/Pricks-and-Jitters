@@ -3,8 +3,8 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c8rt3cs0redr3"
-path.bptc="res://.godot/imported/metal-norm.png-9737a3de533d7259052fbf560840afe6.bptc.ctex"
-path.astc="res://.godot/imported/metal-norm.png-9737a3de533d7259052fbf560840afe6.astc.ctex"
+path.bptc="res://.godot/imported/metal-norm.png-77a40f88de4555366a83fba3811175b1.bptc.ctex"
+path.astc="res://.godot/imported/metal-norm.png-77a40f88de4555366a83fba3811175b1.astc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://Maps/textures/metal-norm.png"
-dest_files=["res://.godot/imported/metal-norm.png-9737a3de533d7259052fbf560840afe6.bptc.ctex", "res://.godot/imported/metal-norm.png-9737a3de533d7259052fbf560840afe6.astc.ctex"]
+source_file="res://maps/textures/metal-norm.png"
+dest_files=["res://.godot/imported/metal-norm.png-77a40f88de4555366a83fba3811175b1.bptc.ctex", "res://.godot/imported/metal-norm.png-77a40f88de4555366a83fba3811175b1.astc.ctex"]
 
 [params]
 

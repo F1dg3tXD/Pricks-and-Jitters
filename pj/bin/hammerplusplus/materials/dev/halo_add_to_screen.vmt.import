@@ -1,0 +1,14 @@
+[remap]
+
+importer="VMT"
+type="Material"
+uid="uid://bo4dnc2btlosk"
+path="res://.godot/imported/halo_add_to_screen.vmt-29998b392c28f87ad8a4f852be692fde.vmt.tres"
+
+[deps]
+
+source_file="res://pj/bin/hammerplusplus/materials/dev/halo_add_to_screen.vmt"
+dest_files=["res://.godot/imported/halo_add_to_screen.vmt-29998b392c28f87ad8a4f852be692fde.vmt.tres"]
+
+[params]
+

@@ -1,0 +1,14 @@
+[remap]
+
+importer="VMT"
+type="Material"
+uid="uid://dgjppl0bmmv1a"
+path="res://.godot/imported/glow_blur_x.vmt-9276f04550b547ea83767e22dc0d5642.vmt.tres"
+
+[deps]
+
+source_file="res://pj/bin/hammerplusplus/materials/dev/glow_blur_x.vmt"
+dest_files=["res://.godot/imported/glow_blur_x.vmt-9276f04550b547ea83767e22dc0d5642.vmt.tres"]
+
+[params]
+

@@ -3,8 +3,8 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bjcqeolk43bqq"
-path.bptc="res://.godot/imported/platform-norm.png-541a6ba9db5a63f83a01d610d2751864.bptc.ctex"
-path.astc="res://.godot/imported/platform-norm.png-541a6ba9db5a63f83a01d610d2751864.astc.ctex"
+path.bptc="res://.godot/imported/platform-norm.png-bb4e6ab8c74c8ed180d8614e4cbe6356.bptc.ctex"
+path.astc="res://.godot/imported/platform-norm.png-bb4e6ab8c74c8ed180d8614e4cbe6356.astc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://Maps/textures/platform-norm.png"
-dest_files=["res://.godot/imported/platform-norm.png-541a6ba9db5a63f83a01d610d2751864.bptc.ctex", "res://.godot/imported/platform-norm.png-541a6ba9db5a63f83a01d610d2751864.astc.ctex"]
+source_file="res://maps/textures/platform-norm.png"
+dest_files=["res://.godot/imported/platform-norm.png-bb4e6ab8c74c8ed180d8614e4cbe6356.bptc.ctex", "res://.godot/imported/platform-norm.png-bb4e6ab8c74c8ed180d8614e4cbe6356.astc.ctex"]
 
 [params]
 

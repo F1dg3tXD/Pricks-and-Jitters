@@ -3,8 +3,8 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bldgtjtsl7tra"
-path.s3tc="res://.godot/imported/detective_Eyewear_diffuse.png-de7063e15394bdcd087ad4ad88410e2a.s3tc.ctex"
-path.etc2="res://.godot/imported/detective_Eyewear_diffuse.png-de7063e15394bdcd087ad4ad88410e2a.etc2.ctex"
+path.s3tc="res://.godot/imported/detective_Eyewear_diffuse.png-7b049924860534218b15e10ed304a8c1.s3tc.ctex"
+path.etc2="res://.godot/imported/detective_Eyewear_diffuse.png-7b049924860534218b15e10ed304a8c1.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://Models/Characters/Detective/textures/detective_Eyewear_diffuse.png"
-dest_files=["res://.godot/imported/detective_Eyewear_diffuse.png-de7063e15394bdcd087ad4ad88410e2a.s3tc.ctex", "res://.godot/imported/detective_Eyewear_diffuse.png-de7063e15394bdcd087ad4ad88410e2a.etc2.ctex"]
+source_file="res://models/Characters/Detective/textures/detective_Eyewear_diffuse.png"
+dest_files=["res://.godot/imported/detective_Eyewear_diffuse.png-7b049924860534218b15e10ed304a8c1.s3tc.ctex", "res://.godot/imported/detective_Eyewear_diffuse.png-7b049924860534218b15e10ed304a8c1.etc2.ctex"]
 
 [params]
 

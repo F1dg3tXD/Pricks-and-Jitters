@@ -3,8 +3,8 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bth6njjg0kr2h"
-path.s3tc="res://.godot/imported/detective_Glove_specular.png-2774e63c501d5a93c4396d47c70c67ef.s3tc.ctex"
-path.etc2="res://.godot/imported/detective_Glove_specular.png-2774e63c501d5a93c4396d47c70c67ef.etc2.ctex"
+path.s3tc="res://.godot/imported/detective_Glove_specular.png-8db061779b670ce1d50a19d7ea54a933.s3tc.ctex"
+path.etc2="res://.godot/imported/detective_Glove_specular.png-8db061779b670ce1d50a19d7ea54a933.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://Models/Characters/Detective/textures/detective_Glove_specular.png"
-dest_files=["res://.godot/imported/detective_Glove_specular.png-2774e63c501d5a93c4396d47c70c67ef.s3tc.ctex", "res://.godot/imported/detective_Glove_specular.png-2774e63c501d5a93c4396d47c70c67ef.etc2.ctex"]
+source_file="res://models/Characters/Detective/textures/detective_Glove_specular.png"
+dest_files=["res://.godot/imported/detective_Glove_specular.png-8db061779b670ce1d50a19d7ea54a933.s3tc.ctex", "res://.godot/imported/detective_Glove_specular.png-8db061779b670ce1d50a19d7ea54a933.etc2.ctex"]
 
 [params]
 

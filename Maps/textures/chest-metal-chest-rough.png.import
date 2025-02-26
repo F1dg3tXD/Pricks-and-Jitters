@@ -3,8 +3,8 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b7nugjkccjulf"
-path.bptc="res://.godot/imported/chest-metal-chest-rough.png-baffba260244485d2d786e9fd7e26a67.bptc.ctex"
-path.astc="res://.godot/imported/chest-metal-chest-rough.png-baffba260244485d2d786e9fd7e26a67.astc.ctex"
+path.bptc="res://.godot/imported/chest-metal-chest-rough.png-631df031fa89e28b2448217c3f567e11.bptc.ctex"
+path.astc="res://.godot/imported/chest-metal-chest-rough.png-631df031fa89e28b2448217c3f567e11.astc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://Maps/textures/chest-metal-chest-rough.png"
-dest_files=["res://.godot/imported/chest-metal-chest-rough.png-baffba260244485d2d786e9fd7e26a67.bptc.ctex", "res://.godot/imported/chest-metal-chest-rough.png-baffba260244485d2d786e9fd7e26a67.astc.ctex"]
+source_file="res://maps/textures/chest-metal-chest-rough.png"
+dest_files=["res://.godot/imported/chest-metal-chest-rough.png-631df031fa89e28b2448217c3f567e11.bptc.ctex", "res://.godot/imported/chest-metal-chest-rough.png-631df031fa89e28b2448217c3f567e11.astc.ctex"]
 
 [params]
 

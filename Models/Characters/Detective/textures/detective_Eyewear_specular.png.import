@@ -3,8 +3,8 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bomuiv5plis83"
-path.s3tc="res://.godot/imported/detective_Eyewear_specular.png-cf932060c9141a2955ee83b729a35a69.s3tc.ctex"
-path.etc2="res://.godot/imported/detective_Eyewear_specular.png-cf932060c9141a2955ee83b729a35a69.etc2.ctex"
+path.s3tc="res://.godot/imported/detective_Eyewear_specular.png-95c65186106ac22f54a550252fe1be86.s3tc.ctex"
+path.etc2="res://.godot/imported/detective_Eyewear_specular.png-95c65186106ac22f54a550252fe1be86.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://Models/Characters/Detective/textures/detective_Eyewear_specular.png"
-dest_files=["res://.godot/imported/detective_Eyewear_specular.png-cf932060c9141a2955ee83b729a35a69.s3tc.ctex", "res://.godot/imported/detective_Eyewear_specular.png-cf932060c9141a2955ee83b729a35a69.etc2.ctex"]
+source_file="res://models/Characters/Detective/textures/detective_Eyewear_specular.png"
+dest_files=["res://.godot/imported/detective_Eyewear_specular.png-95c65186106ac22f54a550252fe1be86.s3tc.ctex", "res://.godot/imported/detective_Eyewear_specular.png-95c65186106ac22f54a550252fe1be86.etc2.ctex"]
 
 [params]
 
