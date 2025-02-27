@@ -17,7 +17,7 @@ radius = 0.4
 height = 1.8
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_x3w4a"]
-radius = 0.4
+radius = 0.3
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h2xi8"]
 bg_color = Color(0.152941, 0.152941, 0.211765, 1)
@@ -61,12 +61,8 @@ length = 0.6
 length = 0.6
 
 [node name="Player" type="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.244844, 0.0106454)
 script = ExtResource("1_iyqmc")
-speed = 4.0
-sprint_speed = 6.0
-accel = 8.0
-jump = 4.0
-crouch_height = 1.5
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.906266, 0)

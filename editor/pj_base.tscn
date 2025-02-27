@@ -1,8 +1,20 @@
-[gd_scene load_steps=4 format=3 uid="uid://bmip8hputjejt"]
+[gd_scene load_steps=8 format=3 uid="uid://bmip8hputjejt"]
 
 [ext_resource type="PackedScene" uid="uid://ckgdb5sapufkf" path="res://entities/swing_door.tscn" id="1_xvicr"]
-[ext_resource type="PackedScene" uid="uid://" path="res://Player/Player.tscn" id="2_4aklp"]
 [ext_resource type="PackedScene" uid="uid://ctdt4heaf24u8" path="res://editor/player_height_reference.tscn" id="3_vmpar"]
+[ext_resource type="PackedScene" uid="uid://ynhnuwu74jp7" path="res://maps/SceneSwitcher.tscn" id="4_2w3ja"]
+[ext_resource type="PackedScene" uid="uid://cwojmirlopc6p" path="res://editor/player_start.tscn" id="4_yeye2"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_fndim"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_ucn2c"]
+sky_material = SubResource("ProceduralSkyMaterial_fndim")
+
+[sub_resource type="Environment" id="Environment_80ofd"]
+background_mode = 2
+sky = SubResource("Sky_ucn2c")
 
 [node name="PjBase" type="Node3D"]
 
@@ -38,8 +50,22 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.01025, 0, 0.455685)
 [node name="Doors2" parent="." instance=ExtResource("1_xvicr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.84518, 0, -4.84695)
 
-[node name="Player" parent="." instance=ExtResource("2_4aklp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.05777, 0.145901, 2.27289)
-
 [node name="Player Height Reference" parent="." instance=ExtResource("3_vmpar")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.55081, 0, 1.08851)
+
+[node name="env" type="Node3D" parent="."]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="env"]
+transform = Transform3D(0.945518, 0.279068, -0.167683, 0, 0.515042, 0.857165, 0.325571, -0.810465, 0.486981, 0, 0, 0)
+light_energy = 2.85
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="env"]
+environment = SubResource("Environment_80ofd")
+
+[node name="player_start" parent="." instance=ExtResource("4_yeye2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.264174, 6.25396)
+
+[node name="SceneSwitcher" parent="." instance=ExtResource("4_2w3ja")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0515288, 0.407238, -4.36083)
+to_scene = "res://maps/DemoRoom.tscn"

@@ -2,14 +2,18 @@ extends CharacterBody3D
 class_name Player
 
 @export_subgroup("Movement")
-@export var speed = 8.0
-@export var sprint_speed = 12.0
-@export var accel = 16.0
-@export var jump = 8.0
+@export var speed = 4.0
+@export var accel = 8.0
+@export var jump = 4.0
+@export var sprint_speed = 6.0
+@export var sprint_accel = 10.0
 
 @export_subgroup("Crouching")
 @export var crouch_speed = 4.0
-@export var crouch_height = 2.4
+@export var stand_height = 1.8
+@export var stand_radius = 0.4
+@export var crouch_height = 0.9
+@export var crouch_radius = 0.3
 @export var crouch_transition = 8.0
 
 @export_subgroup("Camera")
@@ -28,24 +32,22 @@ class_name Player
 
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 var look_rot : Vector2
-var stand_height : float
-var old_vel : float = 0.0
-var hurt_tween : Tween
 var moving : bool = true
 
 func _ready():
 	look_rot.y = rotation_degrees.y
-	stand_height = collision_shape.shape.height
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	scale = Vector3.ONE
-	head.position = Vector3(0, stand_height - 1, 0)
+	collision_shape.shape.height = stand_height
+	collision_shape.shape.radius = stand_radius
+	head.transform.origin.y = stand_height - 0.2
 
 func _physics_process(delta):
-	# movement
 	var move_speed = speed
-
-	if Input.is_action_pressed("sprint") and not Input.is_action_pressed("crouch"):
+	var move_accel = accel
+	
+	if is_sprinting():
 		move_speed = sprint_speed
+		move_accel = sprint_accel
 
 	if not is_on_floor():
 		velocity.y -= gravity * delta
@@ -61,50 +63,47 @@ func _physics_process(delta):
 	var input_dir = Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
 	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if direction and moving:
-		velocity.x = lerp(velocity.x, direction.x * move_speed, accel * delta)
-		velocity.z = lerp(velocity.z, direction.z * move_speed, accel * delta)
+		velocity.x = lerp(velocity.x, direction.x * move_speed, move_accel * delta)
+		velocity.z = lerp(velocity.z, direction.z * move_speed, move_accel * delta)
 	else:
-		velocity.x = lerp(velocity.x, 0.0, accel * delta)
-		velocity.z = lerp(velocity.z, 0.0, accel * delta)
+		velocity.x = lerp(velocity.x, 0.0, move_accel * delta)
+		velocity.z = lerp(velocity.z, 0.0, move_accel * delta)
 
 	move_and_slide()
-	
-	# rotation
-	var plat_rot = get_platform_angular_velocity()
-	look_rot.y += rad_to_deg(plat_rot.y * delta)
+
+	look_rot.y += rad_to_deg(get_platform_angular_velocity().y * delta)
 	head.rotation_degrees.x = look_rot.x
 	rotation_degrees.y = look_rot.y
-	
-	# fall damage
-	if old_vel < 0:
-		var diff = velocity.y - old_vel
-		if diff > fall_damage_threshold:
-			hurt((diff - fall_damage_threshold) * fall_damage_multiplier)
-			crouch(delta)
-	old_vel = velocity.y
 
 func _input(event):
 	if event is InputEventMouseMotion and moving:
-		look_rot.y -= (event.relative.x * sensitivity)
-		look_rot.x -= (event.relative.y * sensitivity)
+		look_rot.y -= event.relative.x * sensitivity
+		look_rot.x -= event.relative.y * sensitivity
 		look_rot.x = clamp(look_rot.x, min_angle, max_angle)
 
 func crouch(delta : float, reverse = false):
-	var target_height : float = crouch_height if not reverse else stand_height
-	
+	var target_height = crouch_height if not reverse else stand_height
+	var target_radius = crouch_radius if not reverse else stand_radius
+	var target_head = target_height - 0.2 if not reverse else stand_height - 0.2
+
 	collision_shape.shape.height = lerp(collision_shape.shape.height, target_height, crouch_transition * delta)
+	collision_shape.shape.radius = lerp(collision_shape.shape.radius, target_radius, crouch_transition * delta)
 	collision_shape.position.y = lerp(collision_shape.position.y, target_height * 0.5, crouch_transition * delta)
-	head.position.y = lerp(head.position.y, target_height - 1, crouch_transition * delta)
-	print("Head Position:", head.position.y)
-	print("Collision Height:", collision_shape.shape.height)
-	print("Collision Position:", collision_shape.position.y)
+	head.transform.origin.y = lerp(head.transform.origin.y, target_head, crouch_transition * delta)
+
+func is_sprinting() -> bool:
+	return Input.is_action_pressed("sprint") and is_on_floor()
 
 func hurt(damage : float):
 	ui.hurt(damage)
-	
 	if ui.health_bar.value <= 0:
 		die()
 
 func die():
 	moving = false
 	ui.show_gameover()
+# Function to reset the height and collision radius to default values
+func reset_height():
+	collision_shape.shape.height = stand_height
+	collision_shape.shape.radius = stand_radius
+	head.transform.origin.y = stand_height - 0.2  # Adjust head position if necessary

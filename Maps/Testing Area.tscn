@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://da5knn73wxupe"]
 
-[ext_resource type="PackedScene" uid="uid://" path="res://Player/Player.tscn" id="2_6pulc"]
 [ext_resource type="PackedScene" uid="uid://ynhnuwu74jp7" path="res://maps/SceneSwitcher.tscn" id="3_ew8w1"]
+[ext_resource type="PackedScene" uid="uid://cwojmirlopc6p" path="res://editor/player_start.tscn" id="3_qdrgv"]
 [ext_resource type="PackedScene" uid="uid://ckgdb5sapufkf" path="res://entities/swing_door.tscn" id="4_elf8r"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_711si"]
@@ -80,12 +80,12 @@ transform = Transform3D(0.945519, 0.279066, -0.16768, 0, 0.515038, 0.857167, 0.3
 light_energy = 2.85
 shadow_enabled = true
 
-[node name="Player" parent="." instance=ExtResource("2_6pulc")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 1, 0)
-
 [node name="Doors" parent="." instance=ExtResource("4_elf8r")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 3.281, 0.25, 5.474)
 
 [node name="SceneSwitcher" parent="." instance=ExtResource("3_ew8w1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 1, 10)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.0057, 0.982537, 10.0028)
 to_scene = "res://editor/pj_base.tscn"
+
+[node name="player_start" parent="." instance=ExtResource("3_qdrgv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.372529, 0)

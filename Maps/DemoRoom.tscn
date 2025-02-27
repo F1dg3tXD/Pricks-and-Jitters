@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=4 uid="uid://ie8ei3mw7b6h"]
+[gd_scene load_steps=21 format=4 uid="uid://ie8ei3mw7b6h"]
 
 [ext_resource type="Texture2D" uid="uid://drlhon23rxqt0" path="res://maps/textures/metal-diff.png" id="1_jd8eh"]
 [ext_resource type="Texture2D" uid="uid://btl52ns2wlqjx" path="res://maps/textures/metal-metal-metal-rough.png" id="2_b5k0q"]
@@ -6,12 +6,11 @@
 [ext_resource type="Texture2D" uid="uid://ddklmh24evc4h" path="res://maps/textures/wall-diff.png" id="4_8sssa"]
 [ext_resource type="Texture2D" uid="uid://dxwtgkdir728" path="res://maps/textures/wall-rough.png" id="5_y1r2w"]
 [ext_resource type="Texture2D" uid="uid://cp25xqkr0erht" path="res://maps/textures/wall-norm.png" id="6_k3vsg"]
-[ext_resource type="PackedScene" uid="uid://" path="res://Player/Player.tscn" id="7_mm4nv"]
 [ext_resource type="PackedScene" uid="uid://bs3onrkfk3cq7" path="res://entities/MovingPlatform.tscn" id="11_2da24"]
-[ext_resource type="PackedScene" uid="uid://ynhnuwu74jp7" path="res://maps/SceneSwitcher.tscn" id="12_2t7ls"]
 [ext_resource type="PackedScene" uid="uid://b4opjllgffad7" path="res://entities/Button.tscn" id="13_2qjvi"]
 [ext_resource type="PackedScene" uid="uid://dsd6mrylbfdp" path="res://entities/Keycard.tscn" id="13_8t3jv"]
 [ext_resource type="PackedScene" uid="uid://0vfe1qnxrku4" path="res://entities/Chest.tscn" id="13_jwga1"]
+[ext_resource type="PackedScene" uid="uid://cwojmirlopc6p" path="res://editor/player_start.tscn" id="13_tqwb4"]
 [ext_resource type="PackedScene" uid="uid://cnyxak6eaknw8" path="res://entities/Door.tscn" id="14_wx2ns"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_tnqhx"]
@@ -140,10 +139,6 @@ light_energy = 2.0
 shadow_enabled = true
 omni_range = 16.0
 
-[node name="SceneSwitcher" parent="." instance=ExtResource("12_2t7ls")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 0.5, 26.25)
-to_scene = "res://Levels/Demo2.tscn"
-
 [node name="Button" parent="." instance=ExtResource("13_2qjvi")]
 transform = Transform3D(-4.37114e-08, -1, 0, -4.37114e-08, 1.91069e-15, -1, 1, -4.37114e-08, -4.37114e-08, 20.25, 2.5, 3.75)
 
@@ -183,11 +178,16 @@ item_id = "GRAPE"
 transform = Transform3D(0.0521439, 0, -0.998639, 0, 1, 0, 0.998639, 0, 0.0521439, 18.4605, 0, 11.8898)
 item_id = "MANGO"
 
-[node name="Player" parent="." instance=ExtResource("7_mm4nv")]
-transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, 2, 14)
-
 [node name="Button3" parent="." instance=ExtResource("13_2qjvi")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 1.78749, -2.86102e-06, 8.275)
+
+[node name="player_start" parent="." instance=ExtResource("13_tqwb4")]
+transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, 2, 14)
+
+[node name="ReflectionProbe" type="ReflectionProbe" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.9053, 7.21802, -2.55042)
+update_mode = 1
+size = Vector3(85.214, 34.436, 68.717)
 
 [connection signal="interacted" from="Button" to="Door" method="toggle"]
 [connection signal="interacted" from="Button2" to="MovingPlatform" method="toggle"]

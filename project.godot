@@ -20,10 +20,11 @@ config/icon="res://iconGame.png"
 
 GameState="*res://global/GameState.gd"
 VMFConfig="*res://addons/godotvmf/src/VMFConfig.gd"
+Console="*res://addons/console/console.gd"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/godotvmf/plugin.cfg", "res://addons/godotvmtsync/plugin.cfg", "res://addons/so_fluffy/plugin.cfg")
+enabled=PackedStringArray("res://addons/console/plugin.cfg", "res://addons/godotvmf/plugin.cfg", "res://addons/godotvmtsync/plugin.cfg", "res://addons/so_fluffy/plugin.cfg")
 
 [input]
 
