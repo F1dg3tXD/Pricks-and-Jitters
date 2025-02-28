@@ -178,7 +178,6 @@ omni_attenuation = 1.44
 
 [node name="Player" parent="." instance=ExtResource("11_x0vqt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0)
-stand_height = 1.8
 
 [editable path="VMFNode/Entities/lights/light_61"]
 [editable path="VMFNode/Entities/lights/light_73"]
