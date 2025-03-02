@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=4 uid="uid://b4opjllgffad7"]
 
-[ext_resource type="Script" uid="uid://b3trhtfiwd78t" path="res://entities/button.gd" id="1_s5nfm"]
+[ext_resource type="Script" path="res://entities/button.gd" id="1_s5nfm"]
 [ext_resource type="Texture2D" uid="uid://gqg48lh36fcv" path="res://maps/textures/button-diff.png" id="2_ijnlo"]
 [ext_resource type="Texture2D" uid="uid://cwf4istv1pad" path="res://maps/textures/button-rough.png" id="3_bua8n"]
 [ext_resource type="Texture2D" uid="uid://ckqxuxuauel5g" path="res://maps/textures/button-norm.png" id="4_0ffjp"]

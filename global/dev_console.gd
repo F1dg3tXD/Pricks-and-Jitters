@@ -10,6 +10,8 @@ func _ready() -> void:
 	#Console.add_command("debug", drawdebug, 0, 0, "Toggles Debug Views")
 	Console.add_command("mapsrc", mapsrc, 0, 0, "Enable loading external scenes from outside the maps folder.")
 	Console.add_command("map", loadmap, ["'Scene Name'"], 1, "Loads a map or level from the maps folder.")
+	Console.add_command("kill", kill, 0, 0, "Kills the player.")
+	Console.add_command("resetHeight", reset_height, 0, 0, "Resets Player height.")
 
 func get_player() -> Player:
 	for node in get_tree().get_nodes_in_group("player"):
@@ -80,3 +82,11 @@ func loadmap(scene_name: String):
 			tree.change_scene_to_file(scene_path)
 		else:
 			Console.print_line("Error: Map '" + scene_name + "' not found!")
+			
+func kill():
+	var player = get_player()
+	player.die()
+
+func reset_height():
+	var player = get_player()
+	player.reset_height()

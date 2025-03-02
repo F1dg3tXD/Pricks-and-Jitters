@@ -1,11 +1,10 @@
-[gd_scene load_steps=22 format=3 uid="uid://a"]
+[gd_scene load_steps=21 format=3 uid="uid://"]
 
-[ext_resource type="Script" uid="uid://cfoy1iits25vv" path="res://Player/Player.gd" id="1_iyqmc"]
+[ext_resource type="Script" path="res://Player/Player.gd" id="1_iyqmc"]
 [ext_resource type="Texture2D" uid="uid://dxn8y4celdh0r" path="res://Player/hurt.png" id="2_ehnts"]
 [ext_resource type="PackedScene" uid="uid://by7g6qtybner8" path="res://Interact/InteractRay.tscn" id="2_h0cin"]
-[ext_resource type="Script" uid="uid://bv4bofwmh21cp" path="res://Player/ui.gd" id="3_uw0jf"]
+[ext_resource type="Script" path="res://Player/ui.gd" id="3_uw0jf"]
 [ext_resource type="FontFile" uid="uid://b3oy2mw5jbhx1" path="res://fonts/Poppins-Regular.ttf" id="5_87d1x"]
-[ext_resource type="Texture2D" uid="uid://bidw8qikasua4" path="res://maps/textures/door-norm.png" id="6_20gd7"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_b0b6p"]
 resource_local_to_scene = true
@@ -107,7 +106,6 @@ offset_right = 16.0
 offset_bottom = 16.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("6_20gd7")
 
 [node name="HurtOverlay" type="TextureRect" parent="UI"]
 modulate = Color(1, 1, 1, 0)
