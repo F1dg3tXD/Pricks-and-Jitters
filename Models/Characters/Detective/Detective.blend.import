@@ -3,12 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bei83s743d0g4"
-valid=false
+uid="uid://blrgn87pkkqdk"
+path="res://.godot/imported/Detective.blend-8a3683a0474bcba76d1c9fa89f02c6f6.scn"
 
 [deps]
 
 source_file="res://models/Characters/Detective/Detective.blend"
+dest_files=["res://.godot/imported/Detective.blend-8a3683a0474bcba76d1c9fa89f02c6f6.scn"]
 
 [params]
 

@@ -21,6 +21,14 @@ config/icon="res://iconGame.png"
 GameState="*res://global/GameState.gd"
 VMFConfig="*res://addons/godotvmf/src/VMFConfig.gd"
 Console="*res://addons/console/console.gd"
+DevConsole="*res://global/dev_console.tscn"
+
+[debug]
+
+shapes/collision=true
+shapes/navigation=true
+shapes/path=true
+shapes/avoidance=true
 
 [editor_plugins]
 

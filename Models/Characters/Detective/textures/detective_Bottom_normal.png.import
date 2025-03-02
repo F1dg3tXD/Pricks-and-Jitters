@@ -2,7 +2,7 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bq5rr8mr0c1id"
+uid="uid://c8l3dhvrili43"
 path.s3tc="res://.godot/imported/detective_Bottom_normal.png-9b9b93a590f5ec896ce016757b8db2b8.s3tc.ctex"
 path.etc2="res://.godot/imported/detective_Bottom_normal.png-9b9b93a590f5ec896ce016757b8db2b8.etc2.ctex"
 metadata={
@@ -26,7 +26,7 @@ compress/channel_pack=0
 mipmaps/generate=true
 mipmaps/limit=-1
 roughness/mode=1
-roughness/src_normal="res://Models/Characters/Detective/textures/detective_Bottom_normal.png"
+roughness/src_normal="res://models/Characters/Detective/textures/detective_Bottom_normal.png"
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/normal_map_invert_y=false

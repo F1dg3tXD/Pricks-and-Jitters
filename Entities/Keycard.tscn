@@ -1,9 +1,9 @@
 [gd_scene load_steps=9 format=4 uid="uid://dsd6mrylbfdp"]
 
-[ext_resource type="Script" path="res://entities/keycard.gd" id="1_mvju4"]
-[ext_resource type="Texture2D" uid="uid://34u63emrhxvb" path="res://maps/textures/keycard-diff.png" id="1_u342h"]
-[ext_resource type="Texture2D" uid="uid://x2rt6bd7yxdf" path="res://maps/textures/keycard-metal-keycard-rough.png" id="2_b5c2e"]
-[ext_resource type="Texture2D" uid="uid://b5v1la5cyj7ps" path="res://maps/textures/keycard-norm.png" id="3_x04w5"]
+[ext_resource type="Script" uid="uid://b2kq8mggxsbg" path="res://entities/keycard.gd" id="1_mvju4"]
+[ext_resource type="Texture2D" uid="uid://34u63emrhxvb" path="res://Levels/textures/keycard-diff.png" id="1_u342h"]
+[ext_resource type="Texture2D" uid="uid://x2rt6bd7yxdf" path="res://Levels/textures/keycard-metal-keycard-rough.png" id="2_b5c2e"]
+[ext_resource type="Texture2D" uid="uid://b5v1la5cyj7ps" path="res://Levels/textures/keycard-norm.png" id="3_x04w5"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4xdob"]
 resource_name = "keycard"

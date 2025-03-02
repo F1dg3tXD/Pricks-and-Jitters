@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://by7g6qtybner8"]
 
-[ext_resource type="Script" path="res://Interact/interactRay.gd" id="1_10173"]
-[ext_resource type="FontFile" uid="uid://bguf3rdjitpq7" path="res://Poppins-Regular.ttf" id="2_qif8b"]
+[ext_resource type="Script" uid="uid://nvffpcv4abuw" path="res://Interact/interactRay.gd" id="1_10173"]
+[ext_resource type="FontFile" uid="uid://b3oy2mw5jbhx1" path="res://fonts/Poppins-Regular.ttf" id="2_qif8b"]
 
 [node name="InteractRay" type="RayCast3D"]
 target_position = Vector3(0, 0, -4)

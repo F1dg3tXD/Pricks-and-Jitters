@@ -1,8 +1,8 @@
 [gd_scene load_steps=13 format=3 uid="uid://ckgdb5sapufkf"]
 
 [ext_resource type="PackedScene" uid="uid://1qswniapc675" path="res://models/Props/Doors.blend" id="1_do67l"]
-[ext_resource type="Script" path="res://entities/swing_door.gd" id="2_8mxpa"]
-[ext_resource type="Script" path="res://Interact/Interactable.gd" id="3_f4uxl"]
+[ext_resource type="Script" uid="uid://cai4k1tqchso1" path="res://entities/swing_door.gd" id="2_8mxpa"]
+[ext_resource type="Script" uid="uid://dal7iom63637r" path="res://Interact/Interactable.gd" id="3_f4uxl"]
 [ext_resource type="AudioStream" uid="uid://c2pfcvk64yek2" path="res://Audio/SFX/doors/swing_door_open.mp3" id="4_tcav7"]
 [ext_resource type="AudioStream" uid="uid://cbxbrjeim8mdv" path="res://Audio/SFX/doors/swing_door_close.mp3" id="5_ii3ek"]
 

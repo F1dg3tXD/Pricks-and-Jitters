@@ -122,7 +122,7 @@ func _ready() -> void:
 	add_command("clear", clear, 0, 0, "Clears the text on the console.")
 	add_command("delete_history", delete_history, 0, 0, "Deletes the history of previously entered commands.")
 	add_command("help", help, 0, 0, "Displays instructions on how to use the console.")
-	add_command("commands_list", commands_list, 0, 0, "Lists all commands and their descriptions.")
+	add_command("list", commands_list, 0, 0, "Lists all commands and their descriptions.")
 	add_command("commands", commands, 0, 0, "Lists commands with no descriptions.")
 	add_command("calc", calculate, ["mathematical expression to evaluate"], 0, "Evaluates the math passed in for quick arithmetic.")
 	add_command("echo", print_line, ["string"], 1, "Prints given string to the console.")
@@ -413,7 +413,7 @@ func help() -> void:
 		[color=light_green]calc[/color]: Calculates a given expresion
 		[color=light_green]clear[/color]: Clears the registry view
 		[color=light_green]commands[/color]: Shows a reduced list of all the currently registered commands
-		[color=light_green]commands_list[/color]: Shows a detailed list of all the currently registered commands
+		[color=light_green]list[/color]: Shows a detailed list of all the currently registered commands
 		[color=light_green]delete_history[/color]: Deletes the commands history
 		[color=light_green]echo[/color]: Prints a given string to the console
 		[color=light_green]echo_error[/color]: Prints a given string as an error to the console

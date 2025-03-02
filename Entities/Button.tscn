@@ -1,10 +1,10 @@
 [gd_scene load_steps=10 format=4 uid="uid://b4opjllgffad7"]
 
-[ext_resource type="Script" path="res://entities/button.gd" id="1_s5nfm"]
+[ext_resource type="Script" uid="uid://b3trhtfiwd78t" path="res://entities/button.gd" id="1_s5nfm"]
 [ext_resource type="Texture2D" uid="uid://gqg48lh36fcv" path="res://maps/textures/button-diff.png" id="2_ijnlo"]
 [ext_resource type="Texture2D" uid="uid://cwf4istv1pad" path="res://maps/textures/button-rough.png" id="3_bua8n"]
 [ext_resource type="Texture2D" uid="uid://ckqxuxuauel5g" path="res://maps/textures/button-norm.png" id="4_0ffjp"]
-[ext_resource type="AudioStream" uid="uid://dv5rfqtwb5trq" path="res://entities/click.ogg" id="5_4rkr3"]
+[ext_resource type="AudioStream" uid="uid://bli1tpb17dlha" path="res://entities/click.ogg" id="5_4rkr3"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g1u1g"]
 resource_name = "button"

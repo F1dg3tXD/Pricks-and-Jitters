@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=4 uid="uid://bpsqnpprm1dgy"]
 
-[ext_resource type="Script" path="res://addons/godotvmf/src/VMFNode.gd" id="1_d043c"]
+[ext_resource type="Script" uid="uid://0k7bu84iuebj" path="res://addons/godotvmf/src/VMFNode.gd" id="1_d043c"]
 [ext_resource type="ArrayMesh" uid="uid://87td612u0d5a" path="res://geometry/example_vmf_import.mesh" id="2_wr216"]
 [ext_resource type="Shape3D" uid="uid://caiuop7qpnrd8" path="res://geometry/example_vmf_collision_surface_prop_default.res" id="3_ouybd"]
 [ext_resource type="PackedScene" uid="uid://bm8k8ppws8jtv" path="res://entities/light.tscn" id="4_2ix17"]
@@ -9,7 +9,7 @@
 [ext_resource type="Material" uid="uid://cgghf0mhpnmuy" path="res://materials/models/props_se/uaz452/uaz452_base.vmt" id="7_fxbea"]
 [ext_resource type="PackedScene" uid="uid://byj6op3xh15oi" path="res://models/uaz452_military.mdl" id="8_7uew7"]
 [ext_resource type="Material" uid="uid://bd0vwp7aa2d2d" path="res://materials/models/props_se/uaz452/uaz452_wheel.vmt" id="8_vu4dw"]
-[ext_resource type="PackedScene" uid="uid://" path="res://Player/Player.tscn" id="11_x0vqt"]
+[ext_resource type="PackedScene" uid="uid://a" path="res://Player/Player.tscn" id="11_x0vqt"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_qaipi"]
 lightmap_size_hint = Vector2i(174, 174)

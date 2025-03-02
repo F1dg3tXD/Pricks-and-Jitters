@@ -25,6 +25,10 @@ class_name Player
 @export var fall_damage_threshold = 20
 @export var fall_damage_multiplier = 1
 
+@export_subgroup("Noclip")
+@export var noclip_enabled := false
+@export var noclip_speed := 8.0
+
 @onready var head = $Head
 @onready var collision_shape = $CollisionShape3D
 @onready var top_cast = $TopCast
@@ -35,6 +39,7 @@ var look_rot : Vector2
 var moving : bool = true
 
 func _ready():
+	add_to_group("player")
 	look_rot.y = rotation_degrees.y
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	collision_shape.shape.height = stand_height
