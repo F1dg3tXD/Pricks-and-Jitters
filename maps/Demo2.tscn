@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://bssekt055qhpd"]
 
-[ext_resource type="PackedScene" uid="uid://" path="res://Player/Player.tscn" id="1_aw33w"]
 [ext_resource type="PackedScene" uid="uid://ynhnuwu74jp7" path="res://maps/SceneSwitcher.tscn" id="2_4i8xn"]
+[ext_resource type="PackedScene" uid="uid://cwojmirlopc6p" path="res://editor/player_start.tscn" id="3_2jivi"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0qnu8"]
 sky_top_color = Color(0, 0.0392157, 0.4, 1)
@@ -34,8 +34,6 @@ size = Vector3(10, 1, 20)
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_00alv")
 
-[node name="Player" parent="." instance=ExtResource("1_aw33w")]
-
 [node name="Floor" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, -5)
 
@@ -47,4 +45,6 @@ shape = SubResource("BoxShape3D_avl1d")
 
 [node name="SceneSwitcher" parent="." instance=ExtResource("2_4i8xn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -10)
-to_scene = "res://Levels/DemoRoom.tscn"
+to_scene = "res://maps/DemoRoom.tscn"
+
+[node name="player_start" parent="." instance=ExtResource("3_2jivi")]

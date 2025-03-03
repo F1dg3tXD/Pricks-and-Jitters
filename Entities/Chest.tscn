@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://vleb88bpmq3t" path="res://maps/textures/chest-diff.png" id="1_mdkaf"]
 [ext_resource type="Script" path="res://entities/chest.gd" id="1_y6p03"]
 [ext_resource type="Texture2D" uid="uid://bojvw7ym0w7ng" path="res://maps/textures/chest-emit.png" id="2_1kyuj"]
-[ext_resource type="Texture2D" uid="uid://b7nugjkccjulf" path="res://maps/textures/chest-metal-chest-rough.png" id="3_34ldq"]
+[ext_resource type="Texture2D" uid="uid://b7nugjkccjulf" path="res://models/Characters/Detective/textures/detective_Body_diffuse.png" id="3_34ldq"]
 [ext_resource type="Texture2D" uid="uid://dr25i3751bb2h" path="res://maps/textures/chest-norm.png" id="4_ns7pf"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_66pjp"]

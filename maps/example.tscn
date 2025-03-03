@@ -5,8 +5,8 @@
 [ext_resource type="Shape3D" uid="uid://caiuop7qpnrd8" path="res://geometry/example_vmf_collision_surface_prop_default.res" id="3_ouybd"]
 [ext_resource type="PackedScene" uid="uid://bm8k8ppws8jtv" path="res://entities/light.tscn" id="4_2ix17"]
 [ext_resource type="PackedScene" uid="uid://byj6op3xh15oi" path="res://models/uaz452_military.mdl" id="8_7uew7"]
+[ext_resource type="PackedScene" uid="uid://cwojmirlopc6p" path="res://editor/player_start.tscn" id="9_cp2xp"]
 [ext_resource type="PackedScene" uid="uid://ckgdb5sapufkf" path="res://entities/swing_door.tscn" id="11_k4ggo"]
-[ext_resource type="PackedScene" uid="uid://" path="res://Player/Player.tscn" id="11_x0vqt"]
 [ext_resource type="PackedScene" uid="uid://ynhnuwu74jp7" path="res://maps/SceneSwitcher.tscn" id="12_ouybc"]
 
 [node name="Example" type="Node3D"]
@@ -117,15 +117,15 @@ omni_attenuation = 1.44
 
 [node name="props" type="Node3D" parent="VMFNode/Entities"]
 
-[node name="Player" parent="." instance=ExtResource("11_x0vqt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0)
-
 [node name="Doors" parent="." instance=ExtResource("11_k4ggo")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 19, 0, -13)
 
 [node name="SceneSwitcher" parent="Doors" instance=ExtResource("12_ouybc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.62029, -0.599751)
 to_scene = "res://maps/DemoRoom.tscn"
+
+[node name="player_start" parent="." instance=ExtResource("9_cp2xp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1, 0)
 
 [editable path="VMFNode/Entities/lights/light_61"]
 [editable path="VMFNode/Entities/lights/light_73"]
