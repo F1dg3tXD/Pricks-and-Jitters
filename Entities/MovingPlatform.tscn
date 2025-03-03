@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=4 uid="uid://bs3onrkfk3cq7"]
+[gd_scene load_steps=20 format=4 uid="uid://bs3onrkfk3cq7"]
 
 [ext_resource type="Texture2D" uid="uid://crkf3perc28un" path="res://maps/textures/platform-diff.png" id="1_hav7a"]
 [ext_resource type="Script" path="res://entities/movingPlatform.gd" id="1_p77f3"]
@@ -7,7 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://drlhon23rxqt0" path="res://maps/textures/metal-diff.png" id="4_b2364"]
 [ext_resource type="Texture2D" uid="uid://btl52ns2wlqjx" path="res://maps/textures/metal-metal-metal-rough.png" id="5_b6qi7"]
 [ext_resource type="Texture2D" uid="uid://c8rt3cs0redr3" path="res://maps/textures/metal-norm.png" id="6_x23p8"]
-[ext_resource type="PackedScene" uid="uid://b4opjllgffad7" path="res://entities/Button.tscn" id="8_qaiea"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r4y31"]
 resource_name = "platform"
@@ -193,12 +192,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
 shape = SubResource("BoxShape3D_7im0s")
 
 [node name="Stand" type="MeshInstance3D" parent="CharacterBody3D"]
-transform = Transform3D(-7.4506e-08, -4.54301e-08, -1, -5.96052e-08, 0.617982, -4.37113e-08, 1, 1.23325e-13, 1.49009e-08, 2.00001, -1.50998e-07, 2.00001)
+transform = Transform3D(-7.4506e-08, -7.21705e-08, -1, -5.96052e-08, 0.98173, -4.37113e-08, 1, 1.95915e-13, 1.49009e-08, 2.00001, -1.50998e-07, 2.00001)
 mesh = SubResource("ArrayMesh_qrcep")
 skeleton = NodePath("")
-
-[node name="Button" parent="CharacterBody3D" instance=ExtResource("8_qaiea")]
-transform = Transform3D(-0.707106, -0.5, -0.5, -6.18169e-08, 0.707107, -0.707107, 0.707106, -0.5, -0.5, 2, 1.26748, 2)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 

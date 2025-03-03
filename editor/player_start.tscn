@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://cwojmirlopc6p"]
+[gd_scene load_steps=4 format=3 uid="uid://cwojmirlopc6p"]
 
 [ext_resource type="Script" path="res://editor/player_start.gd" id="1_mtw50"]
 [ext_resource type="PackedScene" uid="uid://" path="res://Player/Player.tscn" id="2_xrocq"]
+[ext_resource type="PackedScene" uid="uid://bwir8gr837ud0" path="res://editor/player_start_mesh.glb" id="3_psjh1"]
 
 [node name="player_start" type="Node3D"]
 script = ExtResource("1_mtw50")
@@ -11,5 +12,7 @@ player_scene = ExtResource("2_xrocq")
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1, 0)
 
 [node name="debugShape" type="Node3D" parent="."]
+visible = false
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="debugShape"]
+[node name="player_start_mesh2" parent="debugShape" instance=ExtResource("3_psjh1")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0)

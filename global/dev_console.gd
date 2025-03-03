@@ -1,13 +1,13 @@
 extends Node3D
 
 var noclip_enabled: bool = false
-#var debug_draw_enabled: bool = false
+var debug_draw_enabled: bool = false
 var mapsrc_enabled: bool = false
 
 func _ready() -> void:
 	Console.pause_enabled = true
 	Console.add_command("noclip", noclip, 0, 0, "Doesn't Work Yet!")
-	#Console.add_command("debug", drawdebug, 0, 0, "Toggles Debug Views")
+	Console.add_command("debug", drawdebug, 0, 0, "Toggles Debug Views")
 	Console.add_command("mapsrc", mapsrc, 0, 0, "Enable loading external scenes from outside the maps folder.")
 	Console.add_command("map", loadmap, ["'Scene Name'"], 1, "Loads a map or level from the maps folder.")
 	Console.add_command("kill", kill, 0, 0, "Kills the player.")
@@ -37,24 +37,32 @@ func noclip():
 		Console.print_line("Noclip disabled!")
 		Console.print_line("This doesn't work yet!")
 
-# Toggles debug visualization settings
-#func drawdebug():
-	#debug_draw_enabled = !debug_draw_enabled
-	#
-	## Toggle visible debug options (same as Editor's checkboxes)
-	#ProjectSettings.set("debug/shapes/collision", debug_draw_enabled)
-	#ProjectSettings.set("debug/shapes/navigation", debug_draw_enabled)
-	#ProjectSettings.set("debug/shapes/path", debug_draw_enabled)
-	#ProjectSettings.set("debug/shapes/avoidance", debug_draw_enabled)
-#
-	## Apply the changes immediately
-	#ProjectSettings.save()
-#
-	## Print status to console
-	#if debug_draw_enabled:
-		#Console.print_line("Debug View: ENABLED (Collision, Navigation, Paths, Avoidance)")
-	#else:
-		#Console.print_line("Debug View: DISABLED")
+ # Toggles debug visualization settings
+func drawdebug():
+	debug_draw_enabled = !debug_draw_enabled
+	
+	var root = get_tree().current_scene
+	if root:
+		toggle_debug_shapes(root)
+	
+	# Print status to console
+	if debug_draw_enabled:
+		Console.print_line("Debug View: ENABLED (Collision, Navigation, Paths, Avoidance)")
+	else:
+		Console.print_line("Debug View: DISABLED")
+
+func toggle_debug_shapes(node):
+	for child in node.get_children():
+		if child.has_node("debugShape"):
+			var debug_shape = child.get_node("debugShape")
+			if debug_shape is Node3D:
+				debug_shape.visible = debug_draw_enabled
+		toggle_debug_shapes(child)  # Recursively check all children
+
+func enable_all_debug_shapes():
+	var root = get_tree().current_scene
+	if root:
+		toggle_debug_shapes(root)
 
 func mapsrc():
 	mapsrc_enabled = !mapsrc_enabled

@@ -1,12 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://ynhnuwu74jp7"]
+[gd_scene load_steps=6 format=3 uid="uid://ynhnuwu74jp7"]
 
 [ext_resource type="Script" path="res://maps/sceneSwitcher.gd" id="1_c8w34"]
+[ext_resource type="Texture2D" uid="uid://bskqi8xi8dnmj" path="res://editor/sceneSwitcher.png" id="2_w3n44"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4pr74"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cp6uc"]
+transparency = 1
+albedo_color = Color(1, 1, 0, 0.231373)
 emission_enabled = true
-emission = Color(1, 1, 0.921569, 1)
+emission = Color(1, 1, 0, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_8vyso"]
 material = SubResource("StandardMaterial3D_cp6uc")
@@ -17,8 +20,16 @@ script = ExtResource("1_c8w34")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_4pr74")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="debugShape" type="Node3D" parent="."]
 visible = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="debugShape"]
 mesh = SubResource("BoxMesh_8vyso")
+skeleton = NodePath("../..")
+
+[node name="Sprite3D" type="Sprite3D" parent="debugShape"]
+pixel_size = 0.001
+billboard = 1
+texture = ExtResource("2_w3n44")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
