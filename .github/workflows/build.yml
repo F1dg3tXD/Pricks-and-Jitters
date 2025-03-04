@@ -15,6 +15,11 @@ jobs:
         with:
           lfs: true
           submodules: true  # Ensure submodules are checked out
+      - name: Install Export Templates
+        run: |
+          mkdir -p ~/.local/share/godot/templates/4.3-stable
+          wget https://github.com/godotengine/godot-builds/releases/download/4.3-stable/Godot_v4.3-stable_export_templates.tpz -O /tmp/templates.tpz
+          unzip /tmp/templates.tpz -d ~/.local/share/godot/templates/4.3-stable/
 
       - name: Export Godot Project
         uses: firebelley/godot-export@v4.0.0
