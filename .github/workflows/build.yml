@@ -14,19 +14,15 @@ jobs:
         with:
           lfs: true
           submodules: true  # Ensure submodules are checked out
-      - name: Set up Godot templates
-      run: |
-        mkdir -p ~/.local/share/godot/export_templates
-        if [ -d "/root/.local/share/godot/templates/" ]; then
-          cp -r /root/.local/share/godot/templates/* ~/.local/share/godot/export_templates/
-        else
-          echo "Godot templates directory does not exist. Please ensure the templates are available."
-          exit 1
-        fi
       - name: Clean up Git configurations
         run: |
           git config --global --unset-all http.https://github.com/.extraheader || true
           git submodule foreach --recursive git config --global --unset-all http.https://github.com/.extraheader || true
+      - name: Install Godot Export Templates
+        run: |
+          mkdir -p ~/.local/share/godot/export_templates
+          wget https://downloads.tuxfamily.org/godotengine/3.5/Godot_v3.5-stable_export_templates.tpz -O /tmp/templates.tpz
+          unzip /tmp/templates.tpz -d ~/.local/share/godot/export_templates
       - name: Build Godot
         id: build
         uses: yeslayla/build-godot-action@v1.5.0
