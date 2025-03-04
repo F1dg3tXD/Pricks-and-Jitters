@@ -34,10 +34,10 @@ jobs:
     - name: import assets and save project
       run: |
         # Open the project to import assets
-        ./godot/Godot_v4.3-stable_linux.x86_64 --headless --export "Linux/X11" /tmp/temp_game.x11
+        ./godot/Godot_v4.3-stable_linux.x86_64 --headless --export-release "Linux/X11" /tmp/temp_game.x11
         # Wait for assets to finish importing
         sleep 10  # Adjust if necessary depending on the asset import process
-        # Save the project
+        # Save the project (replace with correct script to save project)
         ./godot/Godot_v4.3-stable_linux.x86_64 --headless --script path_to_save_script.gd
 
     - name: export game
