@@ -13,6 +13,11 @@ jobs:
       - uses: actions/checkout@v4
         with:
           lfs: true
+          submodules: true  # Ensure submodules are checked out
+      - name: Clean up Git configurations
+        run: |
+          git config --global --unset-all http.https://github.com/.extraheader || true
+          git submodule foreach --recursive git config --global --unset-all http.https://github.com/.extraheader || true
       - name: Build Godot
         id: build
         uses: yeslayla/build-godot-action@v1.5.0
