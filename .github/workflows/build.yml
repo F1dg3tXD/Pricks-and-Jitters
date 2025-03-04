@@ -32,7 +32,7 @@ jobs:
           Expand-Archive -Path Godot_v4.3-stable_export_templates.tpz -DestinationPath C:\Godot\Templates
 
   # Job to download and extract Blender
-  download_blender:
+   download_blender:
     runs-on: windows-latest
     name: Download and Extract Blender
     needs: [download_godot, download_export_templates]
@@ -42,8 +42,17 @@ jobs:
         
       - name: Download Blender 4.3.2
         run: |
-          Invoke-WebRequest -Uri https://www.blender.org/download/release/Blender4.3/blender-4.3.2-windows-x64.zip -OutFile blender-4.3.2-windows-x64.zip
-          Expand-Archive -Path blender-4.3.2-windows-x64.zip -DestinationPath C:\Blender
+          # Download Blender 4.3.2 using Start-BitsTransfer for more reliability
+          Start-BitsTransfer -Source https://www.blender.org/download/release/Blender4.3/blender-4.3.2-windows-x64.zip -Destination blender-4.3.2-windows-x64.zip
+
+      - name: Extract Blender 4.3.2 with 7z
+        run: |
+          # Ensure 7-Zip is available
+          Invoke-WebRequest -Uri https://www.7-zip.org/a/7z1900-x64.msi -OutFile 7zip.msi
+          Start-Process msiexec.exe -ArgumentList '/i', '7zip.msi', '/quiet', '/norestart' -Wait
+          
+          # Extract Blender zip using 7-Zip
+          & "C:\Program Files\7-Zip\7z.exe" x blender-4.3.2-windows-x64.zip -oC:\Blender
 
   # Job to configure Godot with Blender path and export templates path
   configure_godot:
