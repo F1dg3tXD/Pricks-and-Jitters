@@ -21,9 +21,9 @@ jobs:
           git submodule foreach --recursive git config --global --unset-all http.https://github.com/.extraheader || true
       - name: Install Godot Export Templates
         run: |
-          mkdir -p ~/.local/share/godot/export_templates
+          mkdir -p ~/godot/export_templates
           wget https://github.com/godotengine/godot-builds/releases/download/4.3-stable/Godot_v4.3-stable_export_templates.tpz -O /tmp/templates.tpz
-          unzip /tmp/templates.tpz -d ~/.local/share/godot/export_templates
+          unzip /tmp/templates.tpz -d ~/godot/export_templates
       - name: Build Godot
         id: build
         uses: yeslayla/build-godot-action@v1.5.0
