@@ -16,32 +16,17 @@ jobs:
           lfs: true
           submodules: true  # Ensure submodules are checked out
 
-      - name: Clean up Git configurations
-        run: |
-          git config --global --unset-all http.https://github.com/.extraheader || true
-          git submodule foreach --recursive git config --global --unset-all http.https://github.com/.extraheader || true
-
-      - name: Install Godot Export Templates
-        run: |
-          mkdir -p ~/.local/share/godot/templates
-          wget https://github.com/godotengine/godot-builds/releases/download/4.3-stable/Godot_v4.3-stable_export_templates.tpz -O /tmp/templates.tpz
-          unzip /tmp/templates.tpz -d ~/.local/share/godot/templates/
-
-      - name: Fix Godot Export Template Path
-        run: |
-          mkdir -p /root/.local/share/godot/templates
-          cp -r ~/.local/share/godot/templates/* /root/.local/share/godot/templates/
-
-      - name: Build Godot
-        id: build
-        uses: yeslayla/build-godot-action@v1.5.0
+      - name: Export Godot Project
+        uses: firebelley/godot-export@v5
         with:
-          name: example
+          version: 4.3
           preset: ${{ matrix.platform }}
-          debugMode: "true"
+          export_debug: true
+          cache: true
+          archive_output: false  # Set to true if you want a ZIP file
 
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
         with:
           name: Client - ${{ matrix.platform }}
-          path: ${{ github.workspace }}/${{ steps.build.outputs.build }}"
+          path: build/${{ matrix.platform }}/*
