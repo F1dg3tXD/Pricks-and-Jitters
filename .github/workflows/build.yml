@@ -32,7 +32,7 @@ jobs:
           Expand-Archive -Path Godot_v4.3-stable_export_templates.tpz -DestinationPath C:\Godot\Templates
 
   # Job to download and extract Blender
-   download_blender:
+  download_blender:
     runs-on: windows-latest
     name: Download and Extract Blender
     needs: [download_godot, download_export_templates]
