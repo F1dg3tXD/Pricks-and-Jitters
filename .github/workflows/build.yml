@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        platform: [windows, mac]
+        platform: [linux, windows, mac]
     steps:
       - uses: actions/checkout@v4
         with:
