@@ -15,16 +15,25 @@ jobs:
         with:
           lfs: true
           submodules: true  # Ensure submodules are checked out
+
       - name: Install Export Templates
         run: |
           mkdir -p ~/.local/share/godot/templates/4.3-stable
           wget https://github.com/godotengine/godot-builds/releases/download/4.3-stable/Godot_v4.3-stable_export_templates.tpz -O /tmp/templates.tpz
           unzip /tmp/templates.tpz -d ~/.local/share/godot/templates/4.3-stable/
 
+      - name: Download and Extract Godot Executable
+        run: |
+          mkdir -p /home/runner/.local/share/godot/godot_executable
+          wget https://github.com/godotengine/godot-builds/releases/download/4.3-stable/Godot_v4.3-stable_linux.x86_64.zip -O /home/runner/.local/share/godot/godot.zip
+          unzip /home/runner/.local/share/godot/godot.zip -d /home/runner/.local/share/godot/godot_executable/
+          mv /home/runner/.local/share/godot/godot_executable/Godot_v4.3-stable_linux.x86_64 /home/runner/.local/share/godot/godot_executable/godot
+          chmod +x /home/runner/.local/share/godot/godot_executable/godot
+
       - name: Export Godot Project
         uses: firebelley/godot-export@v4.0.0
         with:
-          godot_executable_download_url: https://github.com/godotengine/godot-builds/releases/download/4.3-stable/Godot_v4.3-stable_linux.x86_64.zip
+          godot_executable_path: /home/runner/.local/share/godot/godot_executable/godot
           godot_export_templates_download_url: https://github.com/godotengine/godot-builds/releases/download/4.3-stable/Godot_v4.3-stable_export_templates.tpz
           use_preset_export_path: true
           cache: true
