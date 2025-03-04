@@ -14,6 +14,15 @@ jobs:
         with:
           lfs: true
           submodules: true  # Ensure submodules are checked out
+      - name: Set up Godot templates
+      run: |
+        mkdir -p ~/.local/share/godot/export_templates
+        if [ -d "/root/.local/share/godot/templates/" ]; then
+          cp -r /root/.local/share/godot/templates/* ~/.local/share/godot/export_templates/
+        else
+          echo "Godot templates directory does not exist. Please ensure the templates are available."
+          exit 1
+        fi
       - name: Clean up Git configurations
         run: |
           git config --global --unset-all http.https://github.com/.extraheader || true
