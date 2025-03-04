@@ -4,76 +4,129 @@ on:
   workflow_dispatch:
 
 jobs:
+  # Job to download and extract Godot
+  download_godot:
+    runs-on: windows-latest
+    name: Download and Extract Godot
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        
+      - name: Download Godot 4.3
+        run: |
+          Invoke-WebRequest -Uri https://github.com/godotengine/godot-builds/releases/download/4.3-stable/Godot_v4.3-stable_win64.exe.zip -OutFile Godot_v4.3-stable_win64.exe.zip
+          Expand-Archive -Path Godot_v4.3-stable_win64.exe.zip -DestinationPath C:\Godot
+
+  # Job to download and extract Godot Export Templates
+  download_export_templates:
+    runs-on: windows-latest
+    name: Download and Extract Godot Export Templates
+    needs: download_godot
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Download Godot Export Templates
+        run: |
+          Invoke-WebRequest -Uri https://github.com/godotengine/godot-builds/releases/download/4.3-stable/Godot_v4.3-stable_export_templates.tpz -OutFile Godot_v4.3-stable_export_templates.tpz
+          Expand-Archive -Path Godot_v4.3-stable_export_templates.tpz -DestinationPath C:\Godot\Templates
+
+  # Job to download and extract Blender
+  download_blender:
+    runs-on: windows-latest
+    name: Download and Extract Blender
+    needs: [download_godot, download_export_templates]
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        
+      - name: Download Blender 4.3.2
+        run: |
+          Invoke-WebRequest -Uri https://www.blender.org/download/release/Blender4.3/blender-4.3.2-windows-x64.zip -OutFile blender-4.3.2-windows-x64.zip
+          Expand-Archive -Path blender-4.3.2-windows-x64.zip -DestinationPath C:\Blender
+
+  # Job to configure Godot with Blender path and export templates path
+  configure_godot:
+    runs-on: windows-latest
+    name: Configure Godot with Blender and Export Templates Path
+    needs: download_blender
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        
+      - name: Set Blender path in Godot
+        run: |
+          # Set the Blender path in Godot to point to the installed Blender 4.3.2 path
+          $blender_path = "C:\Blender\blender-4.3.2-windows-x64\blender.exe"
+          $godot_config_path = "$env:APPDATA\Godot\Godot_v4.3-stable\config.cfg"
+          if (Test-Path $godot_config_path) {
+            Add-Content -Path $godot_config_path -Value "blender_path=$blender_path"
+          } else {
+            Write-Host "Godot config not found. Skipping Blender path setup."
+
+      - name: Set export templates path in Godot
+        run: |
+          # Set the Godot export templates path to the custom directory
+          $godot_config_path = "$env:APPDATA\Godot\Godot_v4.3-stable\config.cfg"
+          if (Test-Path $godot_config_path) {
+            Add-Content -Path $godot_config_path -Value "export_templates_path=C:\Godot\Templates"
+          } else {
+            Write-Host "Godot config not found. Skipping export templates path setup."
+
+  # Job to open Godot and import assets
+  import_assets:
+    runs-on: windows-latest
+    name: Open Godot and Import Assets
+    needs: configure_godot
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Open Godot to import assets
+        run: |
+          # Open the project in Godot to trigger asset imports (make sure Godot project is located in the repo)
+          Start-Process -FilePath "C:\Godot\Godot_v4.3-stable_win64.exe" -ArgumentList "--headless", "--path", "$PWD"
+
+      - name: Wait for asset import
+        run: |
+          # Wait for assets to finish importing (adjust time if necessary)
+          Start-Sleep -Seconds 30
+
+  # Job to export the game using export_presets.cfg
   export_game:
     runs-on: windows-latest
-    permissions: write-all
     name: Export Game
+    needs: import_assets
     steps:
-    
-    - name: Checkout repository
-      uses: actions/checkout@v4
-    
-    - name: Install dependencies and extract files
-      run: |
-        # Download and install Godot 4.3
-        Invoke-WebRequest -Uri https://github.com/godotengine/godot-builds/releases/download/4.3-stable/Godot_v4.3-stable_win64.exe.zip -OutFile Godot_v4.3-stable_win64.exe.zip
-        Expand-Archive -Path Godot_v4.3-stable_win64.exe.zip -DestinationPath C:\Godot
-        Start-Process -FilePath C:\Godot\Godot_v4.3-stable_win64.exe -ArgumentList "/S" -Wait
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-        # Download and install Godot export templates
-        Invoke-WebRequest -Uri https://github.com/godotengine/godot-builds/releases/download/4.3-stable/Godot_v4.3-stable_export_templates.tpz -OutFile Godot_v4.3-stable_export_templates.tpz
-        Expand-Archive -Path Godot_v4.3-stable_export_templates.tpz -DestinationPath C:\Godot\Templates
-        
-        # Download and install Blender 4.3.2
-        Invoke-WebRequest -Uri https://www.blender.org/download/release/Blender4.3/blender-4.3.2-windows-x64.zip -OutFile blender-4.3.2-windows-x64.zip
-        Expand-Archive -Path blender-4.3.2-windows-x64.zip -DestinationPath C:\Blender
-        
-    - name: Set Blender path in Godot
-      run: |
-        # Set the Blender path in Godot to point to the installed Blender 4.3.2 path
-        $blender_path = "C:\Blender\blender-4.3.2-windows-x64\blender.exe"
-        $godot_config_path = "$env:APPDATA\Godot\Godot_v4.3-stable\config.cfg"
-        if (Test-Path $godot_config_path) {
-          Add-Content -Path $godot_config_path -Value "blender_path=$blender_path"
-        } else {
-          Write-Host "Godot config not found. Skipping Blender path setup."
-        
-    - name: Install Godot export templates
-      run: |
-        # Set the Godot export templates path to the custom directory
-        $godot_config_path = "$env:APPDATA\Godot\Godot_v4.3-stable\config.cfg"
-        if (Test-Path $godot_config_path) {
-          Add-Content -Path $godot_config_path -Value "export_templates_path=C:\Godot\Templates"
-        } else {
-          Write-Host "Godot config not found. Skipping export templates path setup."
+      - name: Export Game using export_presets.cfg
+        run: |
+          # Ensure export_presets.cfg exists and use it to export executables
+          $export_presets = "$PWD\export_presets.cfg"
+          if (Test-Path $export_presets) {
+            Start-Process -FilePath "C:\Godot\Godot_v4.3-stable_win64.exe" -ArgumentList "--headless", "--export", $export_presets
+          } else {
+            Write-Host "No export_presets.cfg file found. Skipping export."
 
-    - name: Open Godot project and import assets
-      run: |
-        # Open the project in Godot to trigger asset imports (make sure Godot project is located in the repo)
-        Start-Process -FilePath "C:\Godot\Godot_v4.3-stable_win64.exe" -ArgumentList "--headless", "--path", "$PWD"
-
-    - name: Wait for asset import
-      run: |
-        # Wait for assets to finish importing (adjust time if necessary)
-        Start-Sleep -Seconds 30
-
-    - name: Export Game using export_presets.cfg
-      run: |
-        # Ensure export_presets.cfg exists and use it to export executables
-        $export_presets = "$PWD\export_presets.cfg"
-        if (Test-Path $export_presets) {
-          Start-Process -FilePath "C:\Godot\Godot_v4.3-stable_win64.exe" -ArgumentList "--headless", "--export", $export_presets
-        } else {
-          Write-Host "No export_presets.cfg file found. Skipping export."
+  # Job to upload exported builds as artifacts
+  upload_artifacts:
+    runs-on: windows-latest
+    name: Upload Exported Builds
+    needs: export_game
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
         
-    - name: Upload artifacts
-      uses: actions/upload-artifact@v4
-      with:
-        name: exported-builds
-        path: |
-          $PWD\*.exe
-          $PWD\*.pck
-          $PWD\*.zip
-          $PWD\*.dmg
-          $PWD\*.x86_64
-          $PWD\*.app
+      - name: Upload exported builds
+        uses: actions/upload-artifact@v4
+        with:
+          name: exported-builds
+          path: |
+            $PWD\*.exe
+            $PWD\*.pck
+            $PWD\*.x86_64
+            $PWD\*.app
+            $PWD\*.zip
+            $PWD\*.dmg
