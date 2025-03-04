@@ -43,7 +43,7 @@ jobs:
       - name: Download Blender 4.3.2
         run: |
           # Download Blender 4.3.2 using Start-BitsTransfer for more reliability
-          Start-BitsTransfer -Source https://www.blender.org/download/release/Blender4.3/blender-4.3.2-windows-x64.zip -Destination blender-4.3.2-windows-x64.zip
+          Start-BitsTransfer -Source https://download.blender.org/release/Blender4.3/blender-4.3.2-windows-x64.zip -Destination blender-4.3.2-windows-x64.zip
 
       - name: Extract Blender 4.3.2 with 7z
         run: |
