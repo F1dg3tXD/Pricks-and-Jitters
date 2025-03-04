@@ -4,57 +4,78 @@ on:
   workflow_dispatch:
 
 jobs:
-  # job id, can be anything
   export_game:
-    # Always use ubuntu-latest for this action
-    runs-on: ubuntu-latest
-    # Add permission for release creation. Can be made narrower according to your needs
+    runs-on: windows-latest
     permissions: write-all
-    # Job name, can be anything
     name: Export Game
     steps:
-      # Always include the checkout step so that 
-      # your project is available for Godot to export
-    - name: checkout
+    
+    - name: Checkout repository
       uses: actions/checkout@v4
-
-    - name: install wine
-      id: wine_install
+    
+    - name: Install dependencies
       run: |
-        sudo apt install wine64
-        echo "WINE_PATH=$(which wine64)" >> $GITHUB_OUTPUT
+        # Download and install Godot 4.3
+        Invoke-WebRequest -Uri https://github.com/godotengine/godot/releases/download/4.3-stable/Godot_v4.3-stable_win64.exe -OutFile Godot_v4.3-stable_win64.exe
+        Start-Process -FilePath .\Godot_v4.3-stable_win64.exe -ArgumentList "/S" -Wait
 
-    - name: install dependencies (Godot)
+        # Download and install Blender 4.3.2
+        Invoke-WebRequest -Uri https://github.com/blender/blender/releases/download/v4.3.2/blender-4.3.2-windows-x64.msi -OutFile blender-4.3.2.msi
+        Start-Process -FilePath msiexec.exe -ArgumentList "/i", "blender-4.3.2.msi", "/quiet", "/norestart" -Wait
+        
+    - name: Set Blender path in Godot
       run: |
-        sudo apt update
-        sudo apt install unzip
-        wget https://github.com/godotengine/godot-builds/releases/download/4.3-stable/Godot_v4.3-stable_linux.x86_64.zip
-        unzip Godot_v4.3-stable_linux.x86_64.zip -d godot
-
-    - name: import assets and save project
+        # Set the Blender path in Godot to point to the installed Blender 4.3.2 path
+        $blender_path = "C:\Program Files\Blender Foundation\Blender 4.3.2\blender.exe"
+        $godot_config_path = "$env:APPDATA\Godot\Godot_v4.3-stable\config.cfg"
+        if (Test-Path $godot_config_path) {
+          Add-Content -Path $godot_config_path -Value "blender_path=$blender_path"
+        } else {
+          Write-Host "Godot config not found. Skipping Blender path setup."
+        
+    - name: Install Godot export templates
       run: |
-        # Open the project to import assets
-        ./godot/Godot_v4.3-stable_linux.x86_64 --headless --export-release "Linux/X11" /tmp/temp_game.x11
-        # Wait for assets to finish importing
-        sleep 10  # Adjust if necessary depending on the asset import process
-        # Save the project (replace with correct script to save project)
-        ./godot/Godot_v4.3-stable_linux.x86_64 --headless --script path_to_save_script.gd
+        # Download the Godot export templates
+        Invoke-WebRequest -Uri https://github.com/godotengine/godot-builds/releases/download/4.3-stable/Godot_v4.3-stable_export_templates.tpz -OutFile Godot_v4.3-stable_export_templates.tpz
+        # Extract templates to a specific directory
+        Expand-Archive -Path Godot_v4.3-stable_export_templates.tpz -DestinationPath "$env:USERPROFILE\Documents\Godot/Templates/"
+        
+    - name: Set Godot export templates path
+      run: |
+        # Set the Godot export templates path to the custom directory
+        $godot_config_path = "$env:APPDATA\Godot\Godot_v4.3-stable\config.cfg"
+        if (Test-Path $godot_config_path) {
+          Add-Content -Path $godot_config_path -Value "export_templates_path=$env:USERPROFILE\Documents\Godot/Templates/"
+        } else {
+          Write-Host "Godot config not found. Skipping export templates path setup."
 
-    - name: export game
-      id: export
-      # Use latest version (see releases for all versions)
-      uses: firebelley/godot-export@v6.0.0
+    - name: Open Godot project and import assets
+      run: |
+        # Open the project in Godot to trigger asset imports (make sure Godot project is located in the repo)
+        Start-Process -FilePath "C:\Program Files\Godot_v4.3-stable\Godot_v4.3-stable_win64.exe" -ArgumentList "--headless", "--path", "$PWD"
+
+    - name: Wait for asset import
+      run: |
+        # Wait for assets to finish importing (adjust time if necessary)
+        Start-Sleep -Seconds 30
+
+    - name: Export Game using export_presets.cfg
+      run: |
+        # Ensure export_presets.cfg exists and use it to export executables
+        $export_presets = "$PWD\export_presets.cfg"
+        if (Test-Path $export_presets) {
+          Start-Process -FilePath "C:\Program Files\Godot_v4.3-stable\Godot_v4.3-stable_win64.exe" -ArgumentList "--headless", "--export", $export_presets
+        } else {
+          Write-Host "No export_presets.cfg file found. Skipping export."
+        
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v3
       with:
-        # Defining all the required inputs
-        godot_executable_download_url: https://github.com/godotengine/godot-builds/releases/download/4.3-stable/Godot_v4.3-stable_linux.x86_64.zip
-        godot_export_templates_download_url: https://github.com/godotengine/godot-builds/releases/download/4.3-stable/Godot_v4.3-stable_export_templates.tpz
-        relative_project_path: ./
-        archive_output: true
-
-    - name: create release
-      uses: ncipollo/release-action@v1.14.0
-      with:
-        token: ${{ secrets.GITHUB_TOKEN }}
-        generateReleaseNotes: true
-        tag: ${{ github.ref_name }}
-        artifacts: ${{ steps.export.outputs.archive_directory }}/*
+        name: exported-builds
+        path: |
+          $PWD\*.exe
+          $PWD\*.pck
+          $PWD\*.zip
+          $PWD\*.dmg
+          $PWD\*.x86_64
+          $PWD\*.app
