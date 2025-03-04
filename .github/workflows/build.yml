@@ -23,7 +23,23 @@ jobs:
       run: |
         sudo apt install wine64
         echo "WINE_PATH=$(which wine64)" >> $GITHUB_OUTPUT
-  
+
+    - name: install dependencies (Godot)
+      run: |
+        sudo apt update
+        sudo apt install unzip
+        wget https://github.com/godotengine/godot-builds/releases/download/4.3-stable/Godot_v4.3-stable_linux.x86_64.zip
+        unzip Godot_v4.3-stable_linux.x86_64.zip -d godot
+
+    - name: import assets and save project
+      run: |
+        # Open the project to import assets
+        ./godot/Godot_v4.3-stable_linux.x86_64 --headless --export "Linux/X11" /tmp/temp_game.x11
+        # Wait for assets to finish importing
+        sleep 10  # Adjust if necessary depending on the asset import process
+        # Save the project
+        ./godot/Godot_v4.3-stable_linux.x86_64 --headless --script path_to_save_script.gd
+
     - name: export game
       id: export
       # Use latest version (see releases for all versions)
@@ -35,8 +51,6 @@ jobs:
         relative_project_path: ./
         archive_output: true
 
-      # This release action has worked well for me. However, you can most likely use any release action of your choosing.
-      # https://github.com/ncipollo/release-action
     - name: create release
       uses: ncipollo/release-action@v1.14.0
       with:
