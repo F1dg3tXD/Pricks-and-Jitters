@@ -13,20 +13,25 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v4
     
-    - name: Install dependencies
+    - name: Install dependencies and extract files
       run: |
         # Download and install Godot 4.3
-        Invoke-WebRequest -Uri https://github.com/godotengine/godot/releases/download/4.3-stable/Godot_v4.3-stable_win64.exe -OutFile Godot_v4.3-stable_win64.exe
-        Start-Process -FilePath .\Godot_v4.3-stable_win64.exe -ArgumentList "/S" -Wait
+        Invoke-WebRequest -Uri https://github.com/godotengine/godot-builds/releases/download/4.3-stable/Godot_v4.3-stable_win64.exe.zip -OutFile Godot_v4.3-stable_win64.exe.zip
+        Expand-Archive -Path Godot_v4.3-stable_win64.exe.zip -DestinationPath C:\Godot
+        Start-Process -FilePath C:\Godot\Godot_v4.3-stable_win64.exe -ArgumentList "/S" -Wait
 
+        # Download and install Godot export templates
+        Invoke-WebRequest -Uri https://github.com/godotengine/godot-builds/releases/download/4.3-stable/Godot_v4.3-stable_export_templates.tpz -OutFile Godot_v4.3-stable_export_templates.tpz
+        Expand-Archive -Path Godot_v4.3-stable_export_templates.tpz -DestinationPath C:\Godot\Templates
+        
         # Download and install Blender 4.3.2
-        Invoke-WebRequest -Uri https://github.com/blender/blender/releases/download/v4.3.2/blender-4.3.2-windows-x64.msi -OutFile blender-4.3.2.msi
-        Start-Process -FilePath msiexec.exe -ArgumentList "/i", "blender-4.3.2.msi", "/quiet", "/norestart" -Wait
+        Invoke-WebRequest -Uri https://www.blender.org/download/release/Blender4.3/blender-4.3.2-windows-x64.zip -OutFile blender-4.3.2-windows-x64.zip
+        Expand-Archive -Path blender-4.3.2-windows-x64.zip -DestinationPath C:\Blender
         
     - name: Set Blender path in Godot
       run: |
         # Set the Blender path in Godot to point to the installed Blender 4.3.2 path
-        $blender_path = "C:\Program Files\Blender Foundation\Blender 4.3.2\blender.exe"
+        $blender_path = "C:\Blender\blender-4.3.2-windows-x64\blender.exe"
         $godot_config_path = "$env:APPDATA\Godot\Godot_v4.3-stable\config.cfg"
         if (Test-Path $godot_config_path) {
           Add-Content -Path $godot_config_path -Value "blender_path=$blender_path"
@@ -35,24 +40,17 @@ jobs:
         
     - name: Install Godot export templates
       run: |
-        # Download the Godot export templates
-        Invoke-WebRequest -Uri https://github.com/godotengine/godot-builds/releases/download/4.3-stable/Godot_v4.3-stable_export_templates.tpz -OutFile Godot_v4.3-stable_export_templates.tpz
-        # Extract templates to a specific directory
-        Expand-Archive -Path Godot_v4.3-stable_export_templates.tpz -DestinationPath "$env:USERPROFILE\Documents\Godot/Templates/"
-        
-    - name: Set Godot export templates path
-      run: |
         # Set the Godot export templates path to the custom directory
         $godot_config_path = "$env:APPDATA\Godot\Godot_v4.3-stable\config.cfg"
         if (Test-Path $godot_config_path) {
-          Add-Content -Path $godot_config_path -Value "export_templates_path=$env:USERPROFILE\Documents\Godot/Templates/"
+          Add-Content -Path $godot_config_path -Value "export_templates_path=C:\Godot\Templates"
         } else {
           Write-Host "Godot config not found. Skipping export templates path setup."
 
     - name: Open Godot project and import assets
       run: |
         # Open the project in Godot to trigger asset imports (make sure Godot project is located in the repo)
-        Start-Process -FilePath "C:\Program Files\Godot_v4.3-stable\Godot_v4.3-stable_win64.exe" -ArgumentList "--headless", "--path", "$PWD"
+        Start-Process -FilePath "C:\Godot\Godot_v4.3-stable_win64.exe" -ArgumentList "--headless", "--path", "$PWD"
 
     - name: Wait for asset import
       run: |
@@ -64,7 +62,7 @@ jobs:
         # Ensure export_presets.cfg exists and use it to export executables
         $export_presets = "$PWD\export_presets.cfg"
         if (Test-Path $export_presets) {
-          Start-Process -FilePath "C:\Program Files\Godot_v4.3-stable\Godot_v4.3-stable_win64.exe" -ArgumentList "--headless", "--export", $export_presets
+          Start-Process -FilePath "C:\Godot\Godot_v4.3-stable_win64.exe" -ArgumentList "--headless", "--export", $export_presets
         } else {
           Write-Host "No export_presets.cfg file found. Skipping export."
         
