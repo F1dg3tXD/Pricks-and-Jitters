@@ -67,5 +67,6 @@ shape = SubResource("BoxShape3D_nwfce")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("5_4rkr3")
+bus = &"SFX"
 
 [connection signal="interacted" from="." to="." method="_on_interacted"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=4 uid="uid://ie8ei3mw7b6h"]
+[gd_scene load_steps=23 format=4 uid="uid://ie8ei3mw7b6h"]
 
 [ext_resource type="Texture2D" uid="uid://drlhon23rxqt0" path="res://maps/textures/metal-diff.png" id="1_jd8eh"]
 [ext_resource type="Texture2D" uid="uid://btl52ns2wlqjx" path="res://maps/textures/metal-metal-metal-rough.png" id="2_b5k0q"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://0vfe1qnxrku4" path="res://entities/Chest.tscn" id="13_jwga1"]
 [ext_resource type="PackedScene" uid="uid://cwojmirlopc6p" path="res://editor/player_start.tscn" id="14_6xdlo"]
 [ext_resource type="PackedScene" uid="uid://cnyxak6eaknw8" path="res://entities/Door.tscn" id="14_wx2ns"]
+[ext_resource type="PackedScene" uid="uid://b0ts6sn8pmdcd" path="res://entities/vfx/sparks_ring/sparks_ring.tscn" id="15_q6uq3"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_tnqhx"]
 sky_top_color = Color(0.2304, 0.407893, 0.64, 1)
@@ -29,8 +30,14 @@ sky = SubResource("Sky_vjtwi")
 tonemap_mode = 2
 ssr_enabled = true
 ssr_fade_out = 0.535887
+ssao_enabled = true
+ssil_enabled = true
 sdfgi_enabled = true
 glow_enabled = true
+fog_mode = 1
+fog_light_energy = 0.36
+fog_sun_scatter = 0.42
+fog_density = 1.0
 volumetric_fog_enabled = true
 volumetric_fog_density = 0.01
 volumetric_fog_albedo = Color(0.803922, 0.745098, 0.690196, 1)
@@ -156,8 +163,14 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 20.5, 
 [node name="MovingPlatform" parent="." instance=ExtResource("11_2da24")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, -10)
 
+[node name="CharacterBody3D" parent="MovingPlatform" index="0"]
+transform = Transform3D(0.999993, 4.37108e-08, -4.37107e-08, -4.37109e-08, 0.999991, 3.55271e-15, 4.37113e-08, 3.5527e-15, 0.999997, 0, 0, 0)
+
 [node name="Button3" parent="MovingPlatform/CharacterBody3D" index="3" instance=ExtResource("13_2qjvi")]
 transform = Transform3D(0.707111, -0.500001, 0.500004, 3.09081e-08, 0.707108, 0.707112, -0.707111, -0.500001, 0.500004, 1.98684, 1.86084, 1.98025)
+
+[node name="PathFollow3D" parent="MovingPlatform/Path3D" index="0"]
+transform = Transform3D(-4.37113e-08, 0.999993, -4.3711e-08, 0, -4.37111e-08, -0.999991, -0.999997, -4.37111e-08, 1.91067e-15, 0, 0, 0)
 
 [node name="Keycard" parent="." instance=ExtResource("13_8t3jv")]
 transform = Transform3D(0.88248, -0.470311, 0.00605, -0.0872315, -0.151012, 0.984675, -0.46219, -0.869484, -0.174291, -0.757822, 1.55633, 10.7416)
@@ -187,7 +200,17 @@ transform = Transform3D(0.0521439, 0, -0.998639, 0, 1, 0, 0.998639, 0, 0.0521439
 item_id = "MANGO"
 
 [node name="player_start" parent="." instance=ExtResource("14_6xdlo")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 15)
+
+[node name="SparksRing" parent="." instance=ExtResource("15_q6uq3")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 25.3595, 3.02922, 7.55603)
+
+[node name="SceneSwitcher2" parent="." instance=ExtResource("12_2t7ls")]
+transform = Transform3D(1, 0, 0, 0, 3, 0, 0, 0, 3, 25.321, 2.37699, 7.7192)
+to_scene = "res://development/testbed.tscn"
+
+[node name="SceneSwitcher3" parent="." instance=ExtResource("12_2t7ls")]
+transform = Transform3D(4.83205, 0, 0, 0, 1, 0, 0, 0, 4.95829, 15, -1.5325, -10)
 
 [connection signal="interacted" from="Button" to="Door" method="toggle"]
 [connection signal="interacted" from="Button2" to="MovingPlatform" method="toggle"]

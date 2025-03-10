@@ -1,0 +1,235 @@
+[gd_scene load_steps=17 format=3 uid="uid://db87j0hjixu2d"]
+
+[ext_resource type="Script" path="res://development/toggleEnv.gd" id="1_6ftpc"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ppvfb"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_nxlwj"]
+sky_material = SubResource("ProceduralSkyMaterial_ppvfb")
+
+[sub_resource type="Environment" id="Environment_66xer"]
+background_mode = 2
+sky = SubResource("Sky_nxlwj")
+
+[sub_resource type="Animation" id="Animation_t5jwd"]
+resource_name = "DayIdle"
+tracks/0/type = "rotation_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DirectionalLight3D")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, -0.412957, -0.40691, -0.213714, 0.786268)
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("WorldEnvironment:environment:sky:sky_material:sky_top_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.385, 0.454, 0.55, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("WorldEnvironment:environment:sky:sky_material:sky_horizon_color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.64625, 0.65575, 0.67075, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_7peh7"]
+resource_name = "DayToNight"
+tracks/0/type = "rotation_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DirectionalLight3D")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, -0.412957, -0.40691, -0.213714, 0.786268, 1, 1, 0.790234, 0.217649, -0.404819, 0.405315)
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("WorldEnvironment:environment:sky:sky_material:sky_top_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.385, 0.454, 0.55, 1), Color(0.15286, 0.190161, 0.242035, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("WorldEnvironment:environment:sky:sky_material:sky_horizon_color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.64625, 0.65575, 0.67075, 1), Color(0.0540507, 0.0565398, 0.0604687, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_pyevc"]
+resource_name = "NightIdle"
+tracks/0/type = "rotation_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DirectionalLight3D")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0.790234, 0.217649, -0.404819, 0.405315)
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("WorldEnvironment:environment:sky:sky_material:sky_top_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.15286, 0.190161, 0.242035, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("WorldEnvironment:environment:sky:sky_material:sky_horizon_color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.0540507, 0.0565398, 0.0604687, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_1uyaq"]
+resource_name = "NightToDay"
+tracks/0/type = "rotation_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DirectionalLight3D")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0.790234, 0.217649, -0.404819, 0.405315, 1, 1, -0.412957, -0.40691, -0.213714, 0.786268)
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("WorldEnvironment:environment:sky:sky_material:sky_top_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.15286, 0.190161, 0.242035, 1), Color(0.385, 0.454, 0.55, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("WorldEnvironment:environment:sky:sky_material:sky_horizon_color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.0540507, 0.0565398, 0.0604687, 1), Color(0.64625, 0.65575, 0.67075, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_0ffy8"]
+length = 0.001
+tracks/0/type = "rotation_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DirectionalLight3D")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1)
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("WorldEnvironment:environment:sky:sky_material:sky_top_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.385, 0.454, 0.55, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("WorldEnvironment:environment:sky:sky_material:sky_horizon_color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.64625, 0.65575, 0.67075, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bjlpr"]
+_data = {
+"DayIdle": SubResource("Animation_t5jwd"),
+"DayToNight": SubResource("Animation_7peh7"),
+"NightIdle": SubResource("Animation_pyevc"),
+"NightToDay": SubResource("Animation_1uyaq"),
+"RESET": SubResource("Animation_0ffy8")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_501l0"]
+animation = &"DayToNight"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_httjj"]
+animation = &"NightToDay"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_s13km"]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_3s4jd"]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_5a7d0"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_gvigo"]
+states/DayToNight/node = SubResource("AnimationNodeAnimation_501l0")
+states/DayToNight/position = Vector2(571, 100)
+states/NightToDay/node = SubResource("AnimationNodeAnimation_httjj")
+states/NightToDay/position = Vector2(408, 100)
+transitions = ["DayToNight", "NightToDay", SubResource("AnimationNodeStateMachineTransition_s13km"), "NightToDay", "DayToNight", SubResource("AnimationNodeStateMachineTransition_3s4jd"), "Start", "NightToDay", SubResource("AnimationNodeStateMachineTransition_5a7d0")]
+
+[node name="env" type="Node3D"]
+script = ExtResource("1_6ftpc")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_66xer")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.999999, 0, 0, 0, 1, 0, 0, 0)
+light_energy = 2.85
+shadow_enabled = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_bjlpr")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationNodeStateMachine_gvigo")
+anim_player = NodePath("../AnimationPlayer")

@@ -11,15 +11,18 @@ config_version=5
 [application]
 
 config/name="Pricks-and-Jitters"
-run/main_scene="res://maps/example.tscn"
+run/main_scene="res://maps/DemoRoom.tscn"
 config/features=PackedStringArray("4.3")
 boot_splash/image="res://iconGame.png"
 config/icon="res://iconGame.png"
 
+[audio]
+
+buses/default_bus_layout="res://Audio/default_bus_layout.tres"
+
 [autoload]
 
 GameState="*res://global/GameState.gd"
-VMFConfig="*res://addons/godotvmf/src/VMFConfig.gd"
 Console="*res://addons/console/console.gd"
 RpcData="*res://global/rpc_data.gd"
 DevConsole="*res://global/dev_console.tscn"
@@ -27,7 +30,7 @@ DiscordRPCLoader="*res://addons/discord-rpc-gd/nodes/discord_autoload.gd"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/console/plugin.cfg", "res://addons/discord-rpc-gd/plugin.cfg", "res://addons/godotvmf/plugin.cfg", "res://addons/godotvmtsync/plugin.cfg", "res://addons/so_fluffy/plugin.cfg")
+enabled=PackedStringArray("res://addons/console/plugin.cfg", "res://addons/discord-rpc-gd/plugin.cfg", "res://addons/so_fluffy/plugin.cfg")
 
 [input]
 

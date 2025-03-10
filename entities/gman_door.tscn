@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://cautnp3k2grji"]
+
+[ext_resource type="PackedScene" uid="uid://ckgdb5sapufkf" path="res://entities/swing_door.tscn" id="1_5823s"]
+[ext_resource type="PackedScene" uid="uid://ynhnuwu74jp7" path="res://maps/SceneSwitcher.tscn" id="2_nm2ll"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g0ra5"]
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 2.0
+
+[node name="GmanDoor" type="Node3D"]
+
+[node name="Doors" parent="." instance=ExtResource("1_5823s")]
+
+[node name="SceneSwitcher" parent="." instance=ExtResource("2_nm2ll")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.537132, -0.553091)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.00448, -0.552605)
+material_override = SubResource("StandardMaterial3D_g0ra5")
+flip_faces = true
+size = Vector3(1, 1.98877, 1)
