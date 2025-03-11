@@ -1,0 +1,28 @@
+[gd_scene load_steps=7 format=3 uid="uid://u5yait7iowf3"]
+
+[ext_resource type="PackedScene" uid="uid://dr8sl58jtjr4k" path="res://models/Props/crate.glb" id="1_5wcg6"]
+[ext_resource type="Script" path="res://entities/crate.gd" id="2_7d34r"]
+[ext_resource type="PackedScene" uid="uid://s2vq2ke0iuk" path="res://models/Props/crate_destroyed.glb" id="2_o0760"]
+[ext_resource type="Script" path="res://addons/destruction/destruction.gd" id="3_hb2pb"]
+[ext_resource type="Script" path="res://Interact/Interactable.gd" id="5_s8d18"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_sry46"]
+size = Vector3(2, 2, 2)
+
+[node name="Crate" type="Node3D"]
+script = ExtResource("2_7d34r")
+
+[node name="crate2" parent="." instance=ExtResource("1_5wcg6")]
+
+[node name="Destruction" type="Node" parent="." node_paths=PackedStringArray("shard_container")]
+script = ExtResource("3_hb2pb")
+fragmented = ExtResource("2_o0760")
+shard_container = NodePath("../..")
+
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
+mass = 0.3
+script = ExtResource("5_s8d18")
+prompt_message = "Break"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+shape = SubResource("BoxShape3D_sry46")
