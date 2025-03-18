@@ -1,6 +1,7 @@
-[gd_scene load_steps=17 format=3 uid="uid://db87j0hjixu2d"]
+[gd_scene load_steps=18 format=3 uid="uid://db87j0hjixu2d"]
 
 [ext_resource type="Script" path="res://development/toggleEnv.gd" id="1_6ftpc"]
+[ext_resource type="Script" path="res://addons/game_state_saver/game_state_helper.gd" id="2_y4v30"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ppvfb"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -233,3 +234,8 @@ libraries = {
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource("AnimationNodeStateMachine_gvigo")
 anim_player = NodePath("../AnimationPlayer")
+
+[node name="GameStateHelper" type="Node" parent="."]
+script = ExtResource("2_y4v30")
+save_properties = Array[String](["is_night"])
+global = true

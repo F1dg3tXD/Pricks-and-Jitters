@@ -1,9 +1,10 @@
-[gd_scene load_steps=19 format=4 uid="uid://cnyxak6eaknw8"]
+[gd_scene load_steps=20 format=4 uid="uid://cnyxak6eaknw8"]
 
 [ext_resource type="Script" path="res://entities/door.gd" id="1_0gvfg"]
 [ext_resource type="Texture2D" uid="uid://c0cjruqrs4g3k" path="res://maps/textures/door-diff.png" id="1_px3q8"]
 [ext_resource type="Texture2D" uid="uid://qp25mqqwg415" path="res://maps/textures/door-metal-door-rough.png" id="2_sikcb"]
 [ext_resource type="Texture2D" uid="uid://dggfcvvhfe11o" path="res://maps/textures/door-norm.png" id="3_jdkmt"]
+[ext_resource type="Script" path="res://addons/game_state_saver/game_state_helper.gd" id="5_45clv"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xmcol"]
 resource_name = "door"
@@ -154,21 +155,21 @@ bones/1/name = "panel.l"
 bones/1/parent = 0
 bones/1/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0)
 bones/1/enabled = true
-bones/1/position = Vector3(-3.3, 0, 0)
+bones/1/position = Vector3(-1, 0, 0)
 bones/1/rotation = Quaternion(0, 0, 0, 1)
 bones/1/scale = Vector3(1, 1, 1)
 bones/2/name = "panel.r"
 bones/2/parent = 0
 bones/2/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
 bones/2/enabled = true
-bones/2/position = Vector3(3.3, 0, 0)
+bones/2/position = Vector3(1, 0, 0)
 bones/2/rotation = Quaternion(0, 0, 0, 1)
 bones/2/scale = Vector3(1, 1, 1)
 bones/3/name = "panel.t"
 bones/3/parent = 0
 bones/3/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
 bones/3/enabled = true
-bones/3/position = Vector3(0, 5.3, 0)
+bones/3/position = Vector3(0, 3, 0)
 bones/3/rotation = Quaternion(0, 0, 0, 1)
 bones/3/scale = Vector3(1, 1, 1)
 
@@ -177,7 +178,7 @@ mesh = SubResource("ArrayMesh_ga0ra")
 skin = SubResource("Skin_0c88n")
 
 [node name="BoneAttachmentLeft" type="BoneAttachment3D" parent="DoorArmature/Skeleton3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.3, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0)
 bone_name = "panel.l"
 bone_idx = 1
 
@@ -188,7 +189,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.25, 1.25, 0)
 shape = SubResource("BoxShape3D_wfu64")
 
 [node name="BoneAttachmentRight" type="BoneAttachment3D" parent="DoorArmature/Skeleton3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
 bone_name = "panel.r"
 bone_idx = 2
 
@@ -199,7 +200,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25, 1.25, 0)
 shape = SubResource("BoxShape3D_wfu64")
 
 [node name="BoneAttachmentTop" type="BoneAttachment3D" parent="DoorArmature/Skeleton3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.3, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
 bone_name = "panel.t"
 bone_idx = 3
 
@@ -217,3 +218,8 @@ libraries = {
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource("AnimationNodeStateMachine_eftut")
 anim_player = NodePath("../AnimationPlayer")
+
+[node name="GameStateHelper" type="Node" parent="."]
+script = ExtResource("5_45clv")
+save_properties = Array[String](["is_open"])
+global = true

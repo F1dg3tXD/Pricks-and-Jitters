@@ -8,6 +8,10 @@
 
 config_version=5
 
+[addons]
+
+markdown_book/docs_folder="res://docs"
+
 [application]
 
 config/name="Pricks-and-Jitters"
@@ -27,10 +31,11 @@ Console="*res://addons/console/console.gd"
 RpcData="*res://global/rpc_data.gd"
 DevConsole="*res://global/dev_console.tscn"
 DiscordRPCLoader="*res://addons/discord-rpc-gd/nodes/discord_autoload.gd"
+GameStateService="*res://addons/game_state_saver/game_state_service.gd"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/console/plugin.cfg", "res://addons/discord-rpc-gd/plugin.cfg", "res://addons/so_fluffy/plugin.cfg")
+enabled=PackedStringArray("res://addons/console/plugin.cfg", "res://addons/discord-rpc-gd/plugin.cfg", "res://addons/game_state_saver/plugin.cfg", "res://addons/markdown_book/plugin.cfg", "res://addons/markdownlabel/plugin.cfg", "res://addons/so_fluffy/plugin.cfg")
 
 [input]
 
