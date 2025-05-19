@@ -37,14 +37,14 @@ class_name Player
 @onready var top_cast = $TopCast
 @onready var ui = $UI
 
-@onready var can_climb_f: CollisionShape3D = $canClimbF/RayCast3D
-@onready var can_climb_b: CollisionShape3D = $canClimbB/RayCast3D
-@onready var can_climb_r: CollisionShape3D = $canClimbR/RayCast3D
-@onready var can_climb_l: CollisionShape3D = $canClimbL/RayCast3D
-@onready var can_climb_fl: CollisionShape3D = $canClimbFL/RayCast3D
-@onready var can_climb_br: CollisionShape3D = $canClimbBR/RayCast3D
-@onready var can_climb_fr: CollisionShape3D = $canClimbFR/RayCast3D
-@onready var can_climb_bl: CollisionShape3D = $canClimbBL/RayCast3D
+@onready var can_climb_f: CollisionShape3D = $canClimbF
+@onready var can_climb_b: CollisionShape3D = $canClimbB
+@onready var can_climb_r: CollisionShape3D = $canClimbR
+@onready var can_climb_l: CollisionShape3D = $canClimbL
+@onready var can_climb_fl: CollisionShape3D = $canClimbFL
+@onready var can_climb_br: CollisionShape3D = $canClimbBR
+@onready var can_climb_fr: CollisionShape3D = $canClimbFR
+@onready var can_climb_bl: CollisionShape3D = $canClimbBL
 
 var climbing := false
 var climb_target_y := 0.0
@@ -64,7 +64,7 @@ func _ready():
 func _physics_process(delta):
 	var move_speed = speed
 	var move_accel = accel
-	check_ledge_climb()
+	#check_ledge_climb()
 
 	if climbing:
 		# Smoothly move towards the climb target
@@ -136,22 +136,22 @@ func reset_height():
 	collision_shape.shape.radius = stand_radius
 	head.transform.origin.y = stand_height - 0.2  # Adjust head position if necessary
 
-func check_ledge_climb():
-	# Check all climb colliders
-	var climb_colliders = [can_climb_f, can_climb_b, can_climb_r, can_climb_l, 
-		can_climb_fl, can_climb_br, can_climb_fr, can_climb_bl]
-
-	for col in climb_colliders:
-		if col.disabled == false:  # Ensure the collider is active
-			var raycast: RayCast3D = col.get_node("RayCast3D")
-			if raycast and raycast.is_colliding():
-				var hit_position = raycast.get_collision_point()
-				var hit_normal = raycast.get_collision_normal()
-
-				# Check if it's a valid ledge (pointing up)
-				if hit_normal.y > 0.5:
-					climbing = true
-					climb_target_y = hit_position.y + 0.1  # Small offset for stability
-					return  # Only climb the first valid ledge
-
-	climbing = false  # No ledge detected
+#func check_ledge_climb():
+	## Check all climb colliders
+	#var climb_colliders = [can_climb_f, can_climb_b, can_climb_r, can_climb_l, 
+		#can_climb_fl, can_climb_br, can_climb_fr, can_climb_bl]
+#
+	#for col in climb_colliders:
+		#if col.disabled == false:  # Ensure the collider is active
+			#var raycast: RayCast3D = col.get_node("RayCast3D")
+			#if raycast and raycast.is_colliding():
+				#var hit_position = raycast.get_collision_point()
+				#var hit_normal = raycast.get_collision_normal()
+#
+				## Check if it's a valid ledge (pointing up)
+				#if hit_normal.y > 0.5:
+					#climbing = true
+					#climb_target_y = hit_position.y + 0.1  # Small offset for stability
+					#return  # Only climb the first valid ledge
+#
+	#climbing = false  # No ledge detected
