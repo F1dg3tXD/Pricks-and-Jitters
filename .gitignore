@@ -17,3 +17,4 @@ mono_crash.*.json
 # Ignore Godot executables
 Godot_v4.3-stable_win64.exe
 Godot_v4.3-stable_win64_console.exe
+.DS_Store
