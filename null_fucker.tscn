@@ -1,3 +1,70 @@
-[gd_scene format=3 uid="uid://chybfwnh0w505"]
+[gd_scene load_steps=6 format=3 uid="uid://chybfwnh0w505"]
+
+[ext_resource type="PackedScene" uid="uid://cwojmirlopc6p" path="res://editor/player_start.tscn" id="1_a0hke"]
+[ext_resource type="PackedScene" uid="uid://ckgdb5sapufkf" path="res://Entities/swing_door.tscn" id="3_rnbvd"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_xbmrv"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_lg4g5"]
+sky_material = SubResource("ProceduralSkyMaterial_xbmrv")
+
+[sub_resource type="Environment" id="Environment_uh11p"]
+background_mode = 2
+sky = SubResource("Sky_lg4g5")
+tonemap_mode = 2
+glow_enabled = true
 
 [node name="nullFuckerIG" type="Node3D"]
+
+[node name="map" type="Node3D" parent="."]
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="map"]
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="map/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+use_collision = true
+size = Vector3(13.9044, 1, 19.0258)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="map/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0961075, 1.06244, -4.12)
+use_collision = true
+size = Vector3(4.90331, 2.12488, 0.143555)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="map/CSGCombiner3D/CSGBox3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.63361, -0.0617371, 0.0227661)
+operation = 2
+size = Vector3(1.00476, 2.0014, 0.556274)
+
+[node name="Doors" parent="map/CSGCombiner3D/CSGBox3D2/CSGBox3D3" instance=ExtResource("3_rnbvd")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0.00246799, -1.0007, -0.0232239)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="map/CSGCombiner3D/CSGBox3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.129313, -0.0617371, 0.0227661)
+operation = 2
+size = Vector3(1.00476, 2.0014, 0.556274)
+
+[node name="Doors" parent="map/CSGCombiner3D/CSGBox3D2/CSGBox3D4" instance=ExtResource("3_rnbvd")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0.00246799, -1.0007, -0.0232239)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="map/CSGCombiner3D/CSGBox3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.61509, -0.0617371, 0.0227661)
+operation = 2
+size = Vector3(1.00476, 2.0014, 0.556274)
+
+[node name="Doors" parent="map/CSGCombiner3D/CSGBox3D2/CSGBox3D5" instance=ExtResource("3_rnbvd")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0.00246799, -1.0007, -0.0232239)
+
+[node name="player_start" parent="." instance=ExtResource("1_a0hke")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.00919604, -6.59091)
+
+[node name="env" type="Node3D" parent="."]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="env"]
+environment = SubResource("Environment_uh11p")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="env"]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true

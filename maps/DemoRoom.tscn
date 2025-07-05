@@ -164,14 +164,8 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 20.5, 
 [node name="MovingPlatform" parent="." instance=ExtResource("11_2da24")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, -10)
 
-[node name="CharacterBody3D" parent="MovingPlatform" index="0"]
-transform = Transform3D(0.999993, 4.37108e-08, -4.37107e-08, -4.37109e-08, 0.999991, 3.55271e-15, 4.37113e-08, 3.5527e-15, 0.999997, 0, 0, 0)
-
 [node name="Button3" parent="MovingPlatform/CharacterBody3D" index="3" instance=ExtResource("13_2qjvi")]
 transform = Transform3D(0.707111, -0.500001, 0.500004, 3.09081e-08, 0.707108, 0.707112, -0.707111, -0.500001, 0.500004, 1.98684, 1.86084, 1.98025)
-
-[node name="PathFollow3D" parent="MovingPlatform/Path3D" index="0"]
-transform = Transform3D(-4.37113e-08, 0.999993, -4.3711e-08, 0, -4.37111e-08, -0.999991, -0.999997, -4.37111e-08, 1.91067e-15, 0, 0, 0)
 
 [node name="Keycard" parent="." instance=ExtResource("13_8t3jv")]
 transform = Transform3D(0.88248, -0.470311, 0.00605, -0.0872315, -0.151012, 0.984675, -0.46219, -0.869484, -0.174291, -0.757822, 1.55633, 10.7416)
